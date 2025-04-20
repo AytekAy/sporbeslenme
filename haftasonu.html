@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafta Sonu Beslenme Programı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #FF9D6C 0%, #FF7043 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #FF7043;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #FF9D6C 0%, #FF7043 100%);
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #FF9D6C 0%, #FF7043 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .meal-card {
+            border-left: 4px solid #FF7043;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #FF7043;
+        }
+        .nav-pills .nav-link {
+            color: #FF7043;
+        }
+        .btn-custom {
+            background: linear-gradient(135deg, #FF9D6C 0%, #FF7043 100%);
+            border: none;
+            color: white;
+        }
+        .time {
+            font-weight: bold;
+            color: #FF7043;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .food-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Hafta Sonu Beslenme Programı</h1>
+            <p class="lead">Dinlenme Günleri İçin Özel Beslenme Planı</p>
+            <a href="index.html" class="btn btn-outline-light mt-2">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h2 class="section-title">Hafta Sonu Beslenme Felsefesi</h2>
+                <p>Hafta sonu beslenme programı, hafta içi yoğun antrenman programınızın ardından vücudunuzun toparlanmasına yardımcı olmak ve metabolizmanızı aktif tutmak için tasarlanmıştır. Hafta sonu kahvaltısında sevdiğiniz simit gibi lezzetlere yer vererek hem psikolojik olarak rahatlama sağlar hem de sürdürülebilir bir beslenme düzeni oluşturur.</p>
+                
+                <div class="card mb-4">
+                    <div class="card-header">Hafta Sonu Beslenme İlkeleri</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Kalori alımı hafta içine göre %10-15 daha yüksek olabilir (metabolik esneklik için)</li>
+                            <li>Protein alımı korunmalı (kas kütlesini korumak için)</li>
+                            <li>Karbonhidrat alımı biraz artırılabilir (enerji depolarını doldurmak için)</li>
+                            <li>Su tüketimi aynı seviyede tutulmalı (böbrek taşı riski için)</li>
+                            <li>Sevdiğiniz yiyeceklere yer verin (simit gibi) ancak porsiyon kontrolü yapın</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">Günlük Özet</div>
+                    <div class="card-body">
+                        <p><strong>Kalori:</strong> Plan 1 için ~1800, Plan 2 için ~2000</p>
+                        <p><strong>Protein:</strong> Plan 1 için ~120g, Plan 2 için ~100g</p>
+                        <p><strong>Su:</strong> 3-4 litre</p>
+                        <p><strong>Adım:</strong> 8,000-10,000 (hafif aktivite)</p>
+                        <p><strong>Takviyeler:</strong> Temel takviyeler devam eder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-pills mb-4" id="mainTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="plan1-tab" data-bs-toggle="tab" data-bs-target="#plan1" type="button" role="tab">Plan 1 Hafta Sonu</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="plan2-tab" data-bs-toggle="tab" data-bs-target="#plan2" type="button" role="tab">Plan 2 Hafta Sonu</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="mainTabContent">
+            <!-- Plan 1 Hafta Sonu Tab -->
+            <div class="tab-pane fade show active" id="plan1" role="tabpanel" aria-labelledby="plan1-tab">
+                <h3 class="section-title">Plan 1: Böbrek Taşı Dostu Hafta Sonu Beslenme</h3>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2018/07/14/21/30/cafe-3538930_1280.jpg" class="food-img" alt="Kahvaltı">
+                            <div class="card-body">
+                                <h5 class="card-title">Kahvaltı (08:30-09:30)</h5>
+                                <p class="time">Simit Kahvaltısı</p>
+                                <ul>
+                                    <li>1 adet simit (orta boy)</li>
+                                    <li>2 dilim az tuzlu beyaz peynir (60g)</li>
+                                    <li>5-6 adet zeytin</li>
+                                    <li>1/2 domates, 1/4 salatalık</li>
+                                    <li>1 bardak açık çay (böbrek taşı için koyu çay yerine)</li>
+                                </ul>
+                                <p><strong>Not:</strong> Simit sevdiğiniz bir kahvaltılık olduğu için hafta sonu programına dahil edilmiştir. Porsiyon kontrolüne dikkat edin.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2017/05/17/17/48/fruit-salad-2321772_1280.jpg" class="food-img" alt="Ara Öğün">
+                            <div class="card-body">
+                                <h5 class="card-title">Ara Öğün (11:00-11:30)</h5>
+                                <p class="time">Protein Destekli Meyve</p>
+                                <ul>
+                                    <li>1 adet meyve (elma, armut veya şeftali gibi düşük oksalatlı)</li>
+                                    <li>10 adet badem</li>
+                                    <li>1 bardak su</li>
+                                </ul>
+                                <p><strong>Not:</strong> Meyve seçiminde düşük oksalatlı meyveleri tercih edin.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_1280.jpg" class="food-img" alt="Öğle Yemeği">
+                            <div class="card-body">
+                                <h5 class="card-title">Öğle Yemeği (13:30-14:30)</h5>
+                                <p class="time">Protein Ağırlıklı Öğün</p>
+                                <ul>
+                                    <li>150g ızgara tavuk veya balık</li>
+                                    <li>1/2 bardak bulgur pilavı</li>
+                                    <li>Bol yeşil salata (düşük oksalatlı sebzelerden)</li>
+                                    <li>1 yemek kaşığı zeytinyağı + limon</li>
+                                    <li>1 bardak ayran (düşük tuzlu)</li>
+                                </ul>
+                                <p><strong>Not:</strong> Öğle yemeğinde protein alımı kas toparlanması için önemlidir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2016/03/27/22/38/cake-1284548_1280.jpg" class="food-img" alt="İkindi">
+                            <div class="card-body">
+                                <h5 class="card-title">İkindi (16:30-17:00)</h5>
+                                <p class="time">Hafif Tatlı Keyfi</p>
+                                <ul>
+                                    <li>1 küçük dilim ev yapımı sade kek</li>
+                                    <li>1 fincan bitki çayı (papatya, melisa gibi)</li>
+                                    <li>1 bardak su</li>
+                                </ul>
+                                <p><strong>Not:</strong> Hafta sonu programında küçük bir tatlı keyfi metabolik esneklik sağlar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2017/07/16/11/57/fried-2509089_1280.jpg" class="food-img" alt="Akşam Yemeği">
+                            <div class="card-body">
+                                <h5 class="card-title">Akşam Yemeği (19:30-20:30)</h5>
+                                <p class="time">Dengeli Ana Öğün</p>
+                                <ul>
+                                    <li>120g et/tavuk/balık (fırında veya ızgara)</li>
+                                    <li>1 orta boy patates (fırında)</li>
+                                    <li>Zeytinyağlı sebze yemeği (kabak, havuç gibi)</li>
+                                    <li>Yoğurt (150g)</li>
+                                </ul>
+                                <p><strong>Not:</strong> Akşam yemeğinde karbonhidrat miktarını biraz artırabilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2016/11/18/14/05/brick-1834784_1280.jpg" class="food-img" alt="Gece">
+                            <div class="card-body">
+                                <h5 class="card-title">Gece (22:00-22:30)</h5>
+                                <p class="time">Uyku Öncesi</p>
+                                <ul>
+                                    <li>1 bardak ılık süt (badem sütü olabilir)</li>
+                                    <li>3-4 adet kuru kayısı</li>
+                                </ul>
+                                <p><strong>Not:</strong> Uyku kalitesini artırmak için hafif bir gece atıştırmalığı.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">Takviye Programı (Plan 1 Hafta Sonu)</div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Sabah:</strong> Solgar Omega-3 (1 kapsül), Potasyum Sitrat (1 tablet)</li>
+                            <li><strong>Öğlen:</strong> Hardline Thermo L-Karnitin (1/2 doz - 10 ml)</li>
+                            <li><strong>Akşam:</strong> CLA (1 kapsül)</li>
+                        </ul>
+                        <p><strong>Not:</strong> Hafta sonu takviye dozları hafta içine göre %50 azaltılmıştır. Pre-workout kullanılmaz.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Plan 2 Hafta Sonu Tab -->
+            <div class="tab-pane fade" id="plan2" role="tabpanel" aria-labelledby="plan2-tab">
+                <h3 class="section-title">Plan 2: Mide Dostu Hafta Sonu Beslenme</h3>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2018/07/14/21/30/cafe-3538930_1280.jpg" class="food-img" alt="Kahvaltı">
+                            <div class="card-body">
+                                <h5 class="card-title">Kahvaltı (08:30-09:30)</h5>
+                                <p class="time">Yumuşak Simit Kahvaltısı</p>
+                                <ul>
+                                    <li>1 adet simit (hafif ıslatılmış veya yumuşak)</li>
+                                    <li>1 yemek kaşığı labne peyniri (tuzsuza yakın)</li>
+                                    <li>1 tatlı kaşığı bal</li>
+                                    <li>1/2 muz</li>
+                                    <li>1 bardak ılık papatya çayı</li>
+                                </ul>
+                                <p><strong>Not:</strong> Mide sorunları için simit biraz yumuşatılabilir ve az tuzlu peynir tercih edilmelidir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/abstract-1238247_1280.jpg" class="food-img" alt="Ara Öğün">
+                            <div class="card-body">
+                                <h5 class="card-title">Ara Öğün (11:00-11:30)</h5>
+                                <p class="time">Mide Koruyucu Ara Öğün</p>
+                                <ul>
+                                    <li>1 adet olgun muz</li>
+                                    <li>1 tatlı kaşığı bal</li>
+                                    <li>5 adet badem (çiğ ve tuzsuz)</li>
+                                    <li>1 bardak ılık su</li>
+                                </ul>
+                                <p><strong>Not:</strong> Muz, mide asidini nötralize etmeye yardımcı olur.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2014/06/16/23/10/spice-370114_1280.jpg" class="food-img" alt="Öğle Yemeği">
+                            <div class="card-body">
+                                <h5 class="card-title">Öğle Yemeği (13:30-14:30)</h5>
+                                <p class="time">Yumuşak Protein Öğünü</p>
+                                <ul>
+                                    <li>120g haşlanmış tavuk (baharatsız)</li>
+                                    <li>1/2 bardak pirinç pilavı (sade)</li>
+                                    <li>Haşlanmış havuç ve patates</li>
+                                    <li>1 kase yoğurt (probiyotik)</li>
+                                </ul>
+                                <p><strong>Not:</strong> Baharatsız ve yağsız pişirme teknikleri mide sorunları için önemlidir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2016/03/05/19/24/tea-1238260_1280.jpg" class="food-img" alt="İkindi">
+                            <div class="card-body">
+                                <h5 class="card-title">İkindi (16:30-17:00)</h5>
+                                <p class="time">Sindirimi Kolay Atıştırmalık</p>
+                                <ul>
+                                    <li>1 dilim tost ekmeği</li>
+                                    <li>1 tatlı kaşığı bal</li>
+                                    <li>1 fincan papatya çayı</li>
+                                </ul>
+                                <p><strong>Not:</strong> Hafif ve sindirimi kolay atıştırmalıklar tercih edin.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_1280.jpg" class="food-img" alt="Akşam Yemeği">
+                            <div class="card-body">
+                                <h5 class="card-title">Akşam Yemeği (19:00-20:00)</h5>
+                                <p class="time">Mide Dostu Ana Öğün</p>
+                                <ul>
+                                    <li>100g fırında balık (baharatsız)</li>
+                                    <li>1 orta boy fırın patates</li>
+                                    <li>Zeytinyağlı kabak (az pişmiş)</li>
+                                    <li>1 dilim tam tahıllı ekmek</li>
+                                </ul>
+                                <p><strong>Not:</strong> Akşam yemeğini yatmadan en az 3 saat önce tamamlayın.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card meal-card">
+                            <img src="https://cdn.pixabay.com/photo/2016/11/18/14/05/brick-1834784_1280.jpg" class="food-img" alt="Gece">
+                            <div class="card-body">
+                                <h5 class="card-title">Gece (21:30-22:00)</h5>
+                                <p class="time">Uyku Öncesi</p>
+                                <ul>
+                                    <li>1 bardak ılık badem sütü</li>
+                                    <li>1 tatlı kaşığı bal</li>
+                                </ul>
+                                <p><strong>Not:</strong> Uyku öncesi mide koruyucu içecek.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">Takviye Programı (Plan 2 Hafta Sonu)</div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Sabah (Kahvaltıdan 20 dk önce):</strong> Slippery Elm + DGL karışımı (1 kapsül)</li>
+                            <li><strong>Sabah (Kahvaltı ile):</strong> Solgar Omega-3 (1 kapsül), Potasyum Sitrat (1 tablet)</li>
+                            <li><strong>Öğlen (Yemekten 20 dk önce):</strong> Slippery Elm + DGL karışımı (1 kapsül)</li>
+                            <li><strong>Akşam:</strong> Kollajen Peptidleri (5g)</li>
+                            <li><strong>Gece:</strong> Magnezyum Sitrat (200 mg)</li>
+                        </ul>
+                        <p><strong>Not:</strong> Mide koruyucu takviyeler hafta sonu da aynı dozda devam eder.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-warning mt-4">
+            <h5>Hafta Sonu Özel Uyarılar</h5>
+            <ul>
+                <li>Hafta sonu da su tüketiminizi ihmal etmeyin (böbrek taşı için kritik)</li>
+                <li>Simit kahvaltısında porsiyon kontrolüne dikkat edin</li>
+                <li>Mide sorunları olanlar için, yemekleri daha küçük porsiyonlar halinde ve daha sık tüketin</li>
+                <li>Alkollü içeceklerden kaçının (hem böbrek taşı hem de mide sorunları için zararlı)</li>
+                <li>Hafta sonu da takviye kullanımına devam edin (dozlar ayarlanmıştır)</li>
+            </ul>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-custom">Ana Sayfaya Dön</a>
+            <a href="plan1.html" class="btn btn-outline-secondary ms-2">Plan 1: Böbrek Taşı Dostu</a>
+            <a href="plan2.html" class="btn btn-outline-secondary ms-2">Plan 2: Mide Dostu</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Önemli Not</h4>
+                    <p>Bu plandaki tüm öneriler, belirtilen sağlık durumları göz önünde bulundurularak hazırlanmıştır. Herhangi bir beslenme veya takviye programına başlamadan önce mutlaka doktorunuza danışınız.</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>İletişim</h4>
+                    <p>Sorularınız için iletişime geçebilirsiniz.</p>
+                    <p>GitHub: <a href="https://github.com/AytekAy/sporbeslenme" class="text-white">github.com/AytekAy/sporbeslenme</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
