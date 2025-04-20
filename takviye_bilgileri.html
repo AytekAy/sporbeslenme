@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takviye Bilgileri - Spor ve Beslenme Planları</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            font-weight: bold;
+        }
+        .plan1-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+        .plan2-header {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+            color: white;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .benefit-box {
+            background-color: #d1e7dd;
+            border-left: 4px solid #198754;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .dosage-box {
+            background-color: #cfe2ff;
+            border-left: 4px solid #0d6efd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Takviye Bilgileri</h1>
+            <p class="lead">Böbrek taşı ve mide sorunları için güvenli takviye rehberi</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="alert alert-warning">
+                    <h4 class="alert-heading"><i class="bi bi-exclamation-triangle"></i> Önemli Uyarı</h4>
+                    <p>Bu sayfada sunulan bilgiler sadece bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. Herhangi bir takviye kullanmadan önce mutlaka doktorunuza danışınız.</p>
+                    <hr>
+                    <p class="mb-0">Böbrek taşı ve mide sorunları olan kişilerin takviye kullanımında ekstra dikkatli olması gerekir. Tüm takviyelere yarım dozla başlayın ve vücudunuzun tepkisini gözlemleyin.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2 class="section-title">Plan 1: Böbrek Taşı Dostu Takviyeler</h2>
+                <p class="lead">Böbrek taşı sorunu olanlar için özel olarak seçilmiş, kreatin içermeyen takviyeler</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header plan1-header">
+                        ProteinOcean Pre-Workout Supreme Gummy Bear
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">İçerik (Her Serviste)</h5>
+                        <ul>
+                            <li>Beta-Alanine: 3200 mg</li>
+                            <li>L-Arginine: 2000 mg</li>
+                            <li>L-Citrulline: 1000 mg</li>
+                            <li>Betaine: 1000 mg</li>
+                            <li>Taurine: 800 mg</li>
+                            <li>Caffeine: 210 mg</li>
+                        </ul>
+                        
+                        <div class="benefit-box">
+                            <h5><i class="bi bi-check-circle"></i> Faydaları</h5>
+                            <ul>
+                                <li>Antrenman öncesi enerji artışı</li>
+                                <li>Kas dayanıklılığını artırma</li>
+                                <li>Odaklanma ve performans desteği</li>
+                                <li>Kan akışını artırma (pump etkisi)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Böbrek Taşı Uyarıları</h5>
+                            <ul>
+                                <li>Kreatin içermez, böbrek taşı riski düşüktür</li>
+                                <li>Kafein içeriği yüksektir, su tüketimini artırın</li>
+                                <li>İlk kullanımda yarım doz (1/2 ölçek) ile başlayın</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dosage-box">
+                            <h5><i class="bi bi-clock"></i> Kullanım Önerisi</h5>
+                            <p>Antrenman öncesi 20-30 dakika, 300-400 ml su ile karıştırarak tüketin. Akşam antrenmanlarında uyku problemi yaşamamak için yarım doz kullanın.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header plan1-header">
+                        Sunberg Vegan Protein
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">İçerik (Her Serviste - 33.5g)</h5>
+                        <ul>
+                            <li>Protein: 25g</li>
+                            <li>Karbonhidrat: 1.7g</li>
+                            <li>Yağ: 2.31g</li>
+                            <li>DigeZyme® sindirim enzimleri</li>
+                            <li>Vitamin B6: 3.4 mg</li>
+                            <li>Vitamin B12: 200 mcg</li>
+                        </ul>
+                        
+                        <div class="benefit-box">
+                            <h5><i class="bi bi-check-circle"></i> Faydaları</h5>
+                            <ul>
+                                <li>Kas onarımı ve büyümesi</li>
+                                <li>Sindirim enzimi desteği ile kolay sindirilebilme</li>
+                                <li>Düşük karbonhidrat içeriği</li>
+                                <li>Hayvansal protein kaynaklarına alternatif</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Böbrek Taşı Uyarıları</h5>
+                            <ul>
+                                <li>Bezelye ve pirinç proteini karışımı böbrek taşı riski düşüktür</li>
+                                <li>Protein alımı ile birlikte su tüketimini artırın (en az 500ml)</li>
+                                <li>Günlük toplam protein alımını 1.6-1.8g/kg ile sınırlayın</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dosage-box">
+                            <h5><i class="bi bi-clock"></i> Kullanım Önerisi</h5>
+                            <p>Antrenman sonrası 30 dakika içinde, 300-350 ml su veya badem sütü ile karıştırarak tüketin. Sabah kahvaltı yerine de kullanılabilir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header plan1-header">
+                        Solgar Omega-3
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">İçerik (Her Serviste)</h5>
+                        <ul>
+                            <li>EPA (Eikosapentaenoik Asit): 504 mg</li>
+                            <li>DHA (Dokosaheksaenoik Asit): 378 mg</li>
+                            <li>Toplam Omega-3: 950 mg</li>
+                        </ul>
+                        
+                        <div class="benefit-box">
+                            <h5><i class="bi bi-check-circle"></i> Faydaları</h5>
+                            <ul>
+                                <li>Kalp-damar sağlığını destekleme</li>
+                                <li>İnflamasyonu azaltma</li>
+                                <li>Eklem sağlığını destekleme</li>
+                                <li>Beyin fonksiyonlarını destekleme</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Böbrek Taşı Uyarıları</h5>
+                            <ul>
+                                <li>Böbrek taşı oluşumu üzerinde bilinen olumsuz etkisi yoktur</li>
+                                <li>Kan sulandırıcı ilaç kullanıyorsanız doktorunuza danışın</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dosage-box">
+                            <h5><i class="bi bi-clock"></i> Kullanım Önerisi</h5>
+                            <p>Günde 1 kapsül, yemekle birlikte alın. Mide hassasiyeti varsa, dondurucuda saklayarak kullanabilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header plan1-header">
+                        Hardline Thermo L-Carnitine
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">İçerik (Her Serviste)</h5>
+                        <ul>
+                            <li>L-Carnitine: 2000 mg</li>
+                            <li>Kafein: 100 mg</li>
+                            <li>Sıvı form</li>
+                        </ul>
+                        
+                        <div class="benefit-box">
+                            <h5><i class="bi bi-check-circle"></i> Faydaları</h5>
+                            <ul>
+                                <li>Yağ metabolizmasını hızlandırma</li>
+                                <li>Enerji üretimini destekleme</li>
+                                <li>Kas yorgunluğunu azaltma</li>
+                                <li>Toparlanmayı hızlandırma</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Böbrek Taşı Uyarıları</h5>
+                            <ul>
+                                <li>L-Karnitin böbrek taşı oluşumunu tetiklemez</li>
+                                <li>Kafein içeriği nedeniyle su tüketimini artırın</li>
+                                <li>Tiroid hastalığınız varsa doktorunuza danışın</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dosage-box">
+                            <h5><i class="bi bi-clock"></i> Kullanım Önerisi</h5>
+                            <p>Günde 1 şişe (1 servis), tercihen sabah antrenman öncesi 20-30 dakika önce tüketin. Akşam antrenmanlarında uyku problemi yaşamamak için kullanmayın.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2 class="section-title">Plan 2: Mide Dostu Takviyeler</h2>
+                <p class="lead">Gastrit, ülser ve mide fıtığı sorunları olanlar için özel olarak seçilmiş takviyeler</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header plan2-header">
+                        Slippery Elm + DGL
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">İçerik (Her Serviste)</h5>
+                        <ul>
+                            <li>Slippery Elm Bark: 400 mg</li>
+                            <li>DGL (Deglycyrrhizinated Licorice): 400 mg</li>
+                        </ul>
+                        
+                        <div class="benefit-box">
+                            <h5><i class="bi bi-check-circle"></i> Faydaları</h5>
+                            <ul>
+                                <li>Mide mukozasını koruma</li>
+                                <li>Mide asidinin zararlı etkilerini azaltma</li>
+                                <li>Sindirim sistemini yatıştırma</li>
+                                <li>Mide ve bağırsak iltihabını azaltma</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Mide Sorunları Uyarıları</h5>
+                            <ul>
+                                <li>Yemeklerden 20-30 dakika önce alınmalıdır</li>
+                                <li>Diğer ilaçlardan 2 saat önce veya sonra alın</li>
+                                <li>Tansiyon probleminiz varsa doktorunuza danışın</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dosage-box">
+                            <h5><i class="bi bi-clock"></i> Kullanım Önerisi</h5>
+                            <p>Günde 2-3 kez, yemeklerden 30 dakika önce 1 kapsül alın. Özellikle protein ağırlıklı öğünlerden önce kullanın.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header plan2-header">
+                        Probiyotikler
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">İçerik (Her Serviste)</h5>
+                        <ul>
+                            <li>Lactobacillus acidophilus: 5 milyar CFU</li>
+                            <li>Bifidobacterium lactis: 5 milyar CFU</li>
+                            <li>Lactobacillus plantarum: 2 milyar CFU</li>
+                            <li>Toplam: 15+ milyar CFU</li>
+                        </ul>
+                        
+                        <div class="benefit-box">
+                            <h5><i class="bi bi-check-circle"></i> Faydaları</h5>
+                            <ul>
+                                <li>Bağırsak florasını dengeleme</li>
+                                <li>Sindirim sistemini destekleme</li>
+                                <li>Bağışıklık sistemini güçlendirme</li>
+                                <li>Mide-bağırsak iltihabını azaltma</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Mide Sorunları Uyarıları</h5>
+                            <ul>
+                                <li>Antibiyotik kullanıyorsanız, antibiyotikten 2 saat sonra alın</li>
+                                <li>İlk kullanımda gaz ve hafif şişkinlik olabilir</li>
+                                <li>Bağışıklık sistemi baskılanmış kişiler doktora danışmalı</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dosage-box">
+                            <h5><i class="bi bi-clock"></i> Kullanım Önerisi</h5>
+                            <p>Günde 1 kapsül, kahvaltıdan sonra aç karnına alın. Buzdolabında saklayın ve ısıya maruz bırakmayın.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header plan2-header">
+                        Potasyum Sitrat
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">İçerik (Her Serviste)</h5>
+                        <ul>
+                            <li>Potasyum Sitrat: 99 mg</li>
+                        </ul>
+                        
+                        <div class="benefit-box">
+                            <h5><i class="bi bi-check-circle"></i> Faydaları</h5>
+                            <ul>
+                                <li>İdrar pH'ını dengeleme</li>
+                                <li>Böbrek taşı oluşumunu azaltma</li>
+                                <li>Elektrolit dengesini destekleme</li>
+                                <li>Kas kramplarını önlemeye yardımcı olma</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Uyarılar</h5>
+                            <ul>
+                                <li>Böbrek yetmezliği olanlar kullanmamalıdır</li>
+                                <li>Tansiyon ilacı kullananlar doktora danışmalıdır</li>
+                                <li>Mide asidi düşük olanlar dikkatli kullanmalıdır</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dosage-box">
+                            <h5><i class="bi bi-clock"></i> Kullanım Önerisi</h5>
+                            <p>Günde 2 kez, yemeklerle birlikte 1 kapsül alın. Bol su ile tüketin (en az 250ml).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header plan2-header">
+                        Kollajen Peptidleri
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">İçerik (Her Serviste)</h5>
+                        <ul>
+                            <li>Hidrolize Kollajen: 10g</li>
+                            <li>Tip I ve Tip III Kollajen</li>
+                            <li>Vitamin C: 50mg</li>
+                        </ul>
+                        
+                        <div class="benefit-box">
+                            <h5><i class="bi bi-check-circle"></i> Faydaları</h5>
+                            <ul>
+                                <li>Eklem sağlığını destekleme</li>
+                                <li>Cilt elastikiyetini artırma</li>
+                                <li>Mide mukozasını güçlendirme</li>
+                                <li>Bağırsak sağlığını destekleme</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Mide Sorunları Uyarıları</h5>
+                            <ul>
+                                <li>Mide sorunları olanlar için genellikle güvenlidir</li>
+                                <li>Deniz ürünleri alerjisi olanlar dikkatli olmalıdır</li>
+                                <li>Böbrek taşı öyküsü olanlar bol su ile tüketmelidir</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dosage-box">
+                            <h5><i class="bi bi-clock"></i> Kullanım Önerisi</h5>
+                            <p>Günde 1 kez, tercihen akşam yatmadan önce 300ml su ile karıştırarak tüketin. Mide asidi düşükse yemekle birlikte alın.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <a href="index.html" class="btn btn-primary me-2">Ana Sayfa</a>
+                <a href="plan1.html" class="btn btn-success me-2">Plan 1: Böbrek Taşı Dostu</a>
+                <a href="plan2.html" class="btn btn-info me-2">Plan 2: Mide Dostu</a>
+                <a href="ilerleme_takibi.html" class="btn btn-warning me-2">İlerleme Takibi</a>
+                <a href="su_takibi.html" class="btn btn-secondary">Su Takibi</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Kişiselleştirilmiş Spor ve Beslenme Planları</p>
+            <p><small>Bu içerik sadece bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. Herhangi bir sağlık sorunu için lütfen doktorunuza danışın.</small></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

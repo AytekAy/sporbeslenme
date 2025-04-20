@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acil Durum Planı - Spor ve Beslenme Planları</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .emergency-card {
+            border-left: 5px solid #dc3545;
+        }
+        .warning-card {
+            border-left: 5px solid #ffc107;
+        }
+        .info-card {
+            border-left: 5px solid #0dcaf0;
+        }
+        .card-header {
+            font-weight: bold;
+        }
+        .emergency-header {
+            background-color: #f8d7da;
+            color: #842029;
+        }
+        .warning-header {
+            background-color: #fff3cd;
+            color: #664d03;
+        }
+        .info-header {
+            background-color: #cff4fc;
+            color: #055160;
+        }
+        .emergency-icon {
+            font-size: 2.5rem;
+            color: #dc3545;
+            margin-bottom: 1rem;
+        }
+        .warning-icon {
+            font-size: 2.5rem;
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+        .info-icon {
+            font-size: 2.5rem;
+            color: #0dcaf0;
+            margin-bottom: 1rem;
+        }
+        .action-list {
+            padding-left: 20px;
+        }
+        .action-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        .action-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #198754;
+            font-weight: bold;
+        }
+        .avoid-list {
+            padding-left: 20px;
+        }
+        .avoid-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        .avoid-list li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #dc3545;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .contact-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Acil Durum Planı</h1>
+            <p class="lead">Böbrek taşı ve mide sorunları için acil durum yönetimi</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="alert alert-danger">
+                    <h4 class="alert-heading"><i class="bi bi-exclamation-triangle-fill"></i> Önemli Uyarı</h4>
+                    <p>Bu sayfada sunulan bilgiler sadece bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. Acil bir sağlık durumu yaşıyorsanız hemen tıbbi yardım alın veya acil servisi arayın.</p>
+                    <hr>
+                    <p class="mb-0">Şiddetli ağrı, kusma, yüksek ateş veya diğer ciddi belirtiler durumunda vakit kaybetmeden tıbbi yardım alın.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2 class="section-title">Böbrek Taşı Acil Durumları</h2>
+                <p class="lead">Böbrek taşı ağrısı ve diğer belirtiler için acil müdahale planı</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 emergency-card">
+                    <div class="card-header emergency-header">
+                        <h4><i class="bi bi-exclamation-octagon"></i> Belirtileri Tanıma</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="emergency-icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <h5>Acil Tıbbi Yardım Gerektiren Belirtiler</h5>
+                        <ul class="text-start">
+                            <li>Şiddetli, dayanılmaz yan veya sırt ağrısı</li>
+                            <li>Ağrıyla birlikte bulantı ve kusma</li>
+                            <li>İdrarda kan görülmesi</li>
+                            <li>Yüksek ateş (38.5°C üzeri) ve titreme</li>
+                            <li>İdrar yapamama veya çok az idrar yapma</li>
+                            <li>Şiddetli terleme ve solgunluk</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-grid">
+                            <button class="btn btn-outline-danger" type="button" disabled>Bu belirtiler varsa 112'yi arayın</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 warning-card">
+                    <div class="card-header warning-header">
+                        <h4><i class="bi bi-exclamation-triangle"></i> İlk Müdahale</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="warning-icon">
+                            <i class="bi bi-bandaid"></i>
+                        </div>
+                        <h5>Ağrı Başladığında Yapılacaklar</h5>
+                        <ul class="action-list text-start">
+                            <li>Bol su için (30-60 dakikada bir bardak)</li>
+                            <li>Sıcak duş alın veya sıcak kompres uygulayın</li>
+                            <li>Doktorunuzun önerdiği ağrı kesiciyi alın</li>
+                            <li>Hareket edin, yürüyün (tolere edebiliyorsanız)</li>
+                            <li>Rahat bir pozisyonda uzanın</li>
+                            <li>İdrarınızı süzgeçten geçirin (taş düşebilir)</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-grid">
+                            <button class="btn btn-outline-warning" type="button" disabled>Ağrı 2 saatten uzun sürerse doktora başvurun</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 info-card">
+                    <div class="card-header info-header">
+                        <h4><i class="bi bi-info-circle"></i> Beslenme Değişiklikleri</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="info-icon">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+                        <h5>Atak Sırasında Beslenme</h5>
+                        <ul class="action-list text-start">
+                            <li>Su tüketimini artırın (4+ litre/gün)</li>
+                            <li>Limon suyu eklenmiş su için</li>
+                            <li>Potasyum açısından zengin gıdalar tüketin</li>
+                            <li>Hafif, sindirimi kolay gıdalar tercih edin</li>
+                            <li>Küçük porsiyonlarla beslenin</li>
+                        </ul>
+                        <h5 class="mt-3">Kaçınılması Gerekenler</h5>
+                        <ul class="avoid-list text-start">
+                            <li>Tüm takviyeler (doktor onayına kadar)</li>
+                            <li>Alkol ve kafein</li>
+                            <li>Tuzlu gıdalar</li>
+                            <li>Ağır egzersiz</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4 mt-4">
+            <div class="col-md-12">
+                <h2 class="section-title">Mide Sorunları Acil Durumları</h2>
+                <p class="lead">Gastrit, ülser ve mide fıtığı alevlenmeleri için acil müdahale planı</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 emergency-card">
+                    <div class="card-header emergency-header">
+                        <h4><i class="bi bi-exclamation-octagon"></i> Belirtileri Tanıma</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="emergency-icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <h5>Acil Tıbbi Yardım Gerektiren Belirtiler</h5>
+                        <ul class="text-start">
+                            <li>Şiddetli, dayanılmaz mide ağrısı</li>
+                            <li>Kahve telvesi görünümünde kusma</li>
+                            <li>Siyah, katran gibi dışkı</li>
+                            <li>Nefes almada zorluk veya göğüs ağrısı</li>
+                            <li>Yutma güçlüğü</li>
+                            <li>Ani kilo kaybı ve halsizlik</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-grid">
+                            <button class="btn btn-outline-danger" type="button" disabled>Bu belirtiler varsa 112'yi arayın</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 warning-card">
+                    <div class="card-header warning-header">
+                        <h4><i class="bi bi-exclamation-triangle"></i> İlk Müdahale</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="warning-icon">
+                            <i class="bi bi-bandaid"></i>
+                        </div>
+                        <h5>Mide Ağrısı Başladığında Yapılacaklar</h5>
+                        <ul class="action-list text-start">
+                            <li>Dik oturun, uzanmayın (özellikle mide fıtığında)</li>
+                            <li>Ilık su için (küçük yudumlarla)</li>
+                            <li>Doktorunuzun önerdiği mide ilacını alın</li>
+                            <li>Rahat, bol kıyafetler giyin</li>
+                            <li>Derin ve yavaş nefes alın</li>
+                            <li>Stres azaltıcı teknikler uygulayın</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-grid">
+                            <button class="btn btn-outline-warning" type="button" disabled>Ağrı 1 saatten uzun sürerse doktora başvurun</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 info-card">
+                    <div class="card-header info-header">
+                        <h4><i class="bi bi-info-circle"></i> Beslenme Değişiklikleri</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="info-icon">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+                        <h5>Atak Sırasında Beslenme</h5>
+                        <ul class="action-list text-start">
+                            <li>Patates püresi, haşlanmış pirinç gibi yumuşak gıdalar</li>
+                            <li>Muz, elma püresi gibi hafif meyveler</li>
+                            <li>Ilık çay (papatya, rezene, zencefil)</li>
+                            <li>Çok küçük porsiyonlar (2 saatte bir)</li>
+                            <li>Oda sıcaklığında gıdalar</li>
+                        </ul>
+                        <h5 class="mt-3">Kaçınılması Gerekenler</h5>
+                        <ul class="avoid-list text-start">
+                            <li>Tüm takviyeler (doktor onayına kadar)</li>
+                            <li>Alkol, kafein, gazlı içecekler</li>
+                            <li>Baharatlı, asitli, yağlı gıdalar</li>
+                            <li>Çiğ sebzeler ve lifli gıdalar</li>
+                            <li>Sigara ve diğer tütün ürünleri</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4><i class="bi bi-journal-medical"></i> Acil Durum Kontrol Listesi</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="card-title">Evde Bulundurulması Gerekenler</h5>
+                                <ul>
+                                    <li>Doktorunuzun önerdiği ağrı kesiciler</li>
+                                    <li>Mide koruyucu ilaçlar</li>
+                                    <li>Termometre</li>
+                                    <li>İdrar süzgeci (böbrek taşı için)</li>
+                                    <li>Sıcak kompres veya ısı pedi</li>
+                                    <li>Temiz su kaynağı</li>
+                                    <li>Hafif, sindirimi kolay gıdalar</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="card-title">Acil Durum İletişim Bilgileri</h5>
+                                <div class="contact-card">
+                                    <p><strong>Acil Servis:</strong> 112</p>
+                                    <p><strong>Doktorunuz:</strong> [Doktor Telefon Numarası]</p>
+                                    <p><strong>En Yakın Hastane:</strong> [Hastane Adı ve Adresi]</p>
+                                    <p><strong>Aile Üyesi/Acil Kişi:</strong> [İsim ve Telefon]</p>
+                                    <p><strong>Zehir Danışma:</strong> 114</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <a href="index.html" class="btn btn-primary me-2">Ana Sayfa</a>
+                <a href="plan1.html" class="btn btn-success me-2">Plan 1: Böbrek Taşı Dostu</a>
+                <a href="plan2.html" class="btn btn-info me-2">Plan 2: Mide Dostu</a>
+                <a href="ilerleme_takibi.html" class="btn btn-warning me-2">İlerleme Takibi</a>
+                <a href="takviye_bilgileri.html" class="btn btn-secondary">Takviye Bilgileri</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Kişiselleştirilmiş Spor ve Beslenme Planları</p>
+            <p><small>Bu içerik sadece bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. Herhangi bir sağlık sorunu için lütfen doktorunuza danışın.</small></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

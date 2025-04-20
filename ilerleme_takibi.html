@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlerleme Takibi - Spor ve Beslenme Planları</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .btn-custom {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border: none;
+            color: white;
+        }
+        .btn-custom:hover {
+            background: linear-gradient(135deg, #0d8a7d 0%, #32d56f 100%);
+            color: white;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #11998e;
+        }
+        .progress-table th {
+            background-color: #f1f1f1;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">İlerleme Takibi</h1>
+            <p class="lead">Kilo verme ve sağlık hedeflerinizi izleyin</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Başlangıç Değerleri</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <h5>Kilo</h5>
+                                <h2 class="text-primary">80 kg</h2>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h5>Bel Çevresi</h5>
+                                <h2 class="text-primary">102 cm</h2>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h5>Boy</h5>
+                                <h2 class="text-primary">170 cm</h2>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h5>BMI</h5>
+                                <h2 class="text-primary">27.7</h2>
+                                <small class="text-muted">Hafif Kilolu</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Yeni Ölçüm Ekle</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="measurementForm">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="measurementDate" class="form-label">Tarih</label>
+                                    <input type="date" class="form-control" id="measurementDate" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="weight" class="form-label">Kilo (kg)</label>
+                                    <input type="number" step="0.1" class="form-control" id="weight" placeholder="Örn: 78.5" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="waist" class="form-label">Bel Çevresi (cm)</label>
+                                    <input type="number" step="0.1" class="form-control" id="waist" placeholder="Örn: 100.5">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="notes" class="form-label">Notlar</label>
+                                    <input type="text" class="form-control" id="notes" placeholder="Örn: Daha enerjik hissediyorum">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-custom">Ölçümü Kaydet</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">İlerleme Grafikleri</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-weight-tab" data-bs-toggle="pill" data-bs-target="#pills-weight" type="button" role="tab" aria-controls="pills-weight" aria-selected="true">Kilo Takibi</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-waist-tab" data-bs-toggle="pill" data-bs-target="#pills-waist" type="button" role="tab" aria-controls="pills-waist" aria-selected="false">Bel Çevresi</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-bmi-tab" data-bs-toggle="pill" data-bs-target="#pills-bmi" type="button" role="tab" aria-controls="pills-bmi" aria-selected="false">BMI</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-weight" role="tabpanel" aria-labelledby="pills-weight-tab">
+                                <div class="chart-container">
+                                    <canvas id="weightChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-waist" role="tabpanel" aria-labelledby="pills-waist-tab">
+                                <div class="chart-container">
+                                    <canvas id="waistChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-bmi" role="tabpanel" aria-labelledby="pills-bmi-tab">
+                                <div class="chart-container">
+                                    <canvas id="bmiChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Ölçüm Geçmişi</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover progress-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tarih</th>
+                                        <th>Kilo (kg)</th>
+                                        <th>Değişim</th>
+                                        <th>Bel Çevresi (cm)</th>
+                                        <th>Değişim</th>
+                                        <th>BMI</th>
+                                        <th>Notlar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="measurementTableBody">
+                                    <tr>
+                                        <td>20.04.2025</td>
+                                        <td>80.0</td>
+                                        <td>Başlangıç</td>
+                                        <td>102.0</td>
+                                        <td>Başlangıç</td>
+                                        <td>27.7</td>
+                                        <td>Başlangıç ölçümleri</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <a href="index.html" class="btn btn-primary me-2">Ana Sayfa</a>
+                <a href="plan1.html" class="btn btn-success me-2">Plan 1: Böbrek Taşı Dostu</a>
+                <a href="plan2.html" class="btn btn-info me-2">Plan 2: Mide Dostu</a>
+                <a href="su_takibi.html" class="btn btn-warning me-2">Su Takibi</a>
+                <a href="takviye_bilgileri.html" class="btn btn-secondary">Takviye Bilgileri</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Kişiselleştirilmiş Spor ve Beslenme Planları</p>
+            <p><small>Bu içerik sadece bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. Herhangi bir sağlık sorunu için lütfen doktorunuza danışın.</small></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
+        // Örnek veri
+        const dates = ['20.04.2025'];
+        const weights = [80.0];
+        const waists = [102.0];
+        const bmis = [27.7];
+
+        // BMI hesaplama fonksiyonu
+        function calculateBMI(weight, height) {
+            return (weight / ((height/100) * (height/100))).toFixed(1);
+        }
+
+        // Grafikleri oluştur
+        function createCharts() {
+            // Kilo grafiği
+            const weightCtx = document.getElementById('weightChart').getContext('2d');
+            const weightChart = new Chart(weightCtx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Kilo (kg)',
+                        data: weights,
+                        backgroundColor: 'rgba(17, 153, 142, 0.2)',
+                        borderColor: 'rgba(17, 153, 142, 1)',
+                        borderWidth: 2,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            suggestedMin: Math.min(...weights) - 2,
+                            suggestedMax: Math.max(...weights) + 2
+                        }
+                    }
+                }
+            });
+
+            // Bel çevresi grafiği
+            const waistCtx = document.getElementById('waistChart').getContext('2d');
+            const waistChart = new Chart(waistCtx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Bel Çevresi (cm)',
+                        data: waists,
+                        backgroundColor: 'rgba(78, 84, 200, 0.2)',
+                        borderColor: 'rgba(78, 84, 200, 1)',
+                        borderWidth: 2,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            suggestedMin: Math.min(...waists) - 2,
+                            suggestedMax: Math.max(...waists) + 2
+                        }
+                    }
+                }
+            });
+
+            // BMI grafiği
+            const bmiCtx = document.getElementById('bmiChart').getContext('2d');
+            const bmiChart = new Chart(bmiCtx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'BMI',
+                        data: bmis,
+                        backgroundColor: 'rgba(106, 17, 203, 0.2)',
+                        borderColor: 'rgba(106, 17, 203, 1)',
+                        borderWidth: 2,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            suggestedMin: Math.min(...bmis) - 1,
+                            suggestedMax: Math.max(...bmis) + 1
+                        }
+                    }
+                }
+            });
+        }
+
+        // Form gönderildiğinde
+        document.getElementById('measurementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const date = document.getElementById('measurementDate').value;
+            const formattedDate = new Date(date).toLocaleDateString('tr-TR');
+            const weight = parseFloat(document.getElementById('weight').value);
+            const waist = parseFloat(document.getElementById('waist').value) || '';
+            const notes = document.getElementById('notes').value;
+            
+            // BMI hesapla
+            const height = 170; // Sabit boy değeri
+            const bmi = calculateBMI(weight, height);
+            
+            // Değişimleri hesapla
+            const lastWeightIndex = weights.length - 1;
+            const weightChange = lastWeightIndex >= 0 ? (weight - weights[lastWeightIndex]).toFixed(1) : 'Başlangıç';
+            const weightChangeText = weightChange !== 'Başlangıç' ? (weightChange > 0 ? `+${weightChange}` : weightChange) : weightChange;
+            
+            const lastWaistIndex = waists.length - 1;
+            let waistChange = 'N/A';
+            let waistChangeText = 'N/A';
+            
+            if (waist) {
+                waistChange = lastWaistIndex >= 0 && waists[lastWaistIndex] ? (waist - waists[lastWaistIndex]).toFixed(1) : 'Başlangıç';
+                waistChangeText = waistChange !== 'Başlangıç' ? (waistChange > 0 ? `+${waistChange}` : waistChange) : waistChange;
+            }
+            
+            // Tabloya ekle
+            const tableBody = document.getElementById('measurementTableBody');
+            const newRow = tableBody.insertRow(0);
+            
+            newRow.innerHTML = `
+                <td>${formattedDate}</td>
+                <td>${weight.toFixed(1)}</td>
+                <td class="${weightChange < 0 ? 'text-success' : weightChange > 0 ? 'text-danger' : ''}">${weightChangeText}</td>
+                <td>${waist ? waist.toFixed(1) : 'N/A'}</td>
+                <td class="${waistChange < 0 ? 'text-success' : waistChange > 0 ? 'text-danger' : ''}">${waistChangeText}</td>
+                <td>${bmi}</td>
+                <td>${notes}</td>
+            `;
+            
+            // Verileri güncelle
+            dates.push(formattedDate);
+            weights.push(weight);
+            if (waist) waists.push(waist);
+            bmis.push(bmi);
+            
+            // Grafikleri yeniden oluştur
+            createCharts();
+            
+            // Formu temizle
+            document.getElementById('measurementForm').reset();
+        });
+
+        // Sayfa yüklendiğinde grafikleri oluştur
+        document.addEventListener('DOMContentLoaded', function() {
+            createCharts();
+        });
+    </script>
+</body>
+</html>

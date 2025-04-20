@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Su Takibi - Spor ve Beslenme Planları</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            font-weight: bold;
+        }
+        .water-header {
+            background: linear-gradient(135deg, #0099F7 0%, #66d6ff 100%);
+            color: white;
+        }
+        .water-container {
+            position: relative;
+            height: 300px;
+            width: 150px;
+            margin: 0 auto;
+            background-color: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #0099F7;
+        }
+        .water-level {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(0deg, #0099F7 0%, #66d6ff 100%);
+            transition: height 0.5s ease;
+        }
+        .water-marks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .water-mark {
+            position: relative;
+            width: 100%;
+            text-align: right;
+            padding-right: 10px;
+            color: #495057;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .water-mark::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 8px;
+            height: 1px;
+            background-color: #495057;
+        }
+        .water-counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0099F7;
+            margin-top: 20px;
+        }
+        .water-buttons {
+            margin-top: 20px;
+        }
+        .water-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            background-color: #0099F7;
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .water-btn:hover {
+            background-color: #007bff;
+            transform: scale(1.1);
+        }
+        .water-btn:active {
+            transform: scale(0.95);
+        }
+        .water-history {
+            margin-top: 30px;
+        }
+        .water-history-item {
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .water-history-item:nth-child(odd) {
+            background-color: #cfe2ff;
+        }
+        .water-info-card {
+            background-color: #e7f5ff;
+            border-left: 5px solid #0099F7;
+        }
+        .water-goal-card {
+            background-color: #d1e7dd;
+            border-left: 5px solid #198754;
+        }
+        .water-warning-card {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .progress-water {
+            height: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Su Takibi</h1>
+            <p class="lead">Böbrek taşı önleme için günlük su tüketimini takip edin</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="alert alert-primary">
+                    <h4 class="alert-heading"><i class="bi bi-info-circle-fill"></i> Neden Su Takibi Önemli?</h4>
+                    <p>Böbrek taşı sorunu olan kişiler için günlük 3-4 litre su tüketimi kritik önem taşır. Yeterli su tüketimi, idrarın seyreltilmesine yardımcı olarak taş oluşumunu önler ve mevcut taşların daha kolay geçmesini sağlar.</p>
+                    <hr>
+                    <p class="mb-0">Bu takip aracı, günlük su tüketiminizi kolayca izlemenize ve hedefinize ulaşmanıza yardımcı olacaktır.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header water-header">
+                        <h4><i class="bi bi-droplet-fill"></i> Günlük Su Takibi</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="water-container">
+                            <div class="water-level" id="waterLevel" style="height: 0%;"></div>
+                            <div class="water-marks">
+                                <div class="water-mark">4L</div>
+                                <div class="water-mark">3L</div>
+                                <div class="water-mark">2L</div>
+                                <div class="water-mark">1L</div>
+                                <div class="water-mark">0L</div>
+                            </div>
+                        </div>
+                        
+                        <div class="water-counter mt-3">
+                            <span id="waterAmount">0</span> ml
+                        </div>
+                        
+                        <div class="progress mt-3">
+                            <div class="progress-bar progress-water bg-info" id="waterProgress" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small class="text-muted" id="waterPercentage">0% tamamlandı</small>
+                        
+                        <div class="water-buttons d-flex justify-content-center mt-4">
+                            <button class="water-btn" onclick="addWater(200)">
+                                <i class="bi bi-cup"></i>
+                            </button>
+                            <button class="water-btn" onclick="addWater(500)">
+                                <i class="bi bi-cup-straw"></i>
+                            </button>
+                            <button class="water-btn" onclick="addWater(1000)">
+                                <i class="bi bi-water"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <small class="text-muted">200ml - Bardak | 500ml - Şişe | 1000ml - Büyük Şişe</small>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button class="btn btn-outline-danger" onclick="resetWater()">Sıfırla</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header water-header">
+                        <h4><i class="bi bi-clock-history"></i> Bugünkü İçme Kayıtları</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="water-history" id="waterHistory">
+                            <!-- Su içme kayıtları buraya eklenecek -->
+                            <div class="text-center text-muted py-5">
+                                <i class="bi bi-droplet" style="font-size: 2rem;"></i>
+                                <p class="mt-3">Henüz kayıt yok</p>
+                                <p class="small">Su içtiğinizde kayıtlar burada görünecek</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 water-info-card">
+                    <div class="card-header water-header">
+                        <h4><i class="bi bi-info-circle"></i> Su Tüketimi Bilgileri</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="water-goal-card p-3 mb-3">
+                            <h5><i class="bi bi-trophy"></i> Böbrek Taşı İçin Hedef</h5>
+                            <p>Böbrek taşı sorunu olan kişiler için günlük <strong>3-4 litre</strong> su tüketimi önerilir. Bu miktar, idrarın seyreltilmesine ve taş oluşumunun önlenmesine yardımcı olur.</p>
+                        </div>
+                        
+                        <div class="water-warning-card p-3 mb-3">
+                            <h5><i class="bi bi-exclamation-triangle"></i> Önemli Hatırlatmalar</h5>
+                            <ul>
+                                <li>Suyu gün boyunca eşit aralıklarla tüketin</li>
+                                <li>Sabah kalkar kalkmaz 1 bardak su için</li>
+                                <li>Her öğünden önce 1 bardak su için</li>
+                                <li>Egzersiz öncesi ve sonrası su tüketimini artırın</li>
+                                <li>Yatmadan 1 saat önce su içmeyi bırakın</li>
+                            </ul>
+                        </div>
+                        
+                        <h5 class="mt-4">Su İçme İpuçları</h5>
+                        <ul>
+                            <li>Yanınızda her zaman su şişesi bulundurun</li>
+                            <li>Suya limon, salatalık veya nane ekleyerek lezzet katın</li>
+                            <li>Akıllı telefon hatırlatıcıları kullanın</li>
+                            <li>Her saat başı bir bardak su içmeyi hedefleyin</li>
+                            <li>Kafein ve alkol tüketimini sınırlayın (dehidrasyona neden olur)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header water-header">
+                        <h4><i class="bi bi-calendar3"></i> Haftalık Su Tüketimi</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="weeklyWaterChart" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <a href="index.html" class="btn btn-primary me-2">Ana Sayfa</a>
+                <a href="plan1.html" class="btn btn-success me-2">Plan 1: Böbrek Taşı Dostu</a>
+                <a href="plan2.html" class="btn btn-info me-2">Plan 2: Mide Dostu</a>
+                <a href="ilerleme_takibi.html" class="btn btn-warning me-2">İlerleme Takibi</a>
+                <a href="takviye_bilgileri.html" class="btn btn-secondary me-2">Takviye Bilgileri</a>
+                <a href="acil_durum_plani.html" class="btn btn-danger">Acil Durum Planı</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Kişiselleştirilmiş Spor ve Beslenme Planları</p>
+            <p><small>Bu içerik sadece bilgilendirme amaçlıdır ve tıbbi tavsiye yerine geçmez. Herhangi bir sağlık sorunu için lütfen doktorunuza danışın.</small></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script>
+        // Hedef su miktarı (ml)
+        const waterGoal = 3500;
+        let currentWater = 0;
+        let waterHistory = [];
+        
+        // Sayfa yüklendiğinde localStorage'dan verileri al
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bugünün tarihi
+            const today = new Date().toLocaleDateString('tr-TR');
+            
+            // LocalStorage'dan verileri al
+            if (localStorage.getItem('waterData')) {
+                const waterData = JSON.parse(localStorage.getItem('waterData'));
+                
+                // Eğer bugünün verisi varsa, onu kullan
+                if (waterData.date === today) {
+                    currentWater = waterData.amount;
+                    waterHistory = waterData.history;
+                    updateWaterDisplay();
+                    renderWaterHistory();
+                } else {
+                    // Yeni gün, verileri sıfırla
+                    resetWater();
+                }
+            }
+            
+            // Haftalık grafik
+            renderWeeklyChart();
+        });
+        
+        // Su ekleme fonksiyonu
+        function addWater(amount) {
+            currentWater += amount;
+            
+            // Su içme kaydını ekle
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+            
+            waterHistory.push({
+                time: timeString,
+                amount: amount
+            });
+            
+            // Ekranı güncelle
+            updateWaterDisplay();
+            renderWaterHistory();
+            saveWaterData();
+        }
+        
+        // Su verilerini sıfırlama
+        function resetWater() {
+            currentWater = 0;
+            waterHistory = [];
+            updateWaterDisplay();
+            renderWaterHistory();
+            saveWaterData();
+        }
+        
+        // Su göstergesini güncelleme
+        function updateWaterDisplay() {
+            const waterLevel = document.getElementById('waterLevel');
+            const waterAmount = document.getElementById('waterAmount');
+            const waterProgress = document.getElementById('waterProgress');
+            const waterPercentage = document.getElementById('waterPercentage');
+            
+            // Su seviyesini hesapla (maksimum %100)
+            const percentage = Math.min((currentWater / waterGoal) * 100, 100);
+            
+            // Göstergeleri güncelle
+            waterLevel.style.height = percentage + '%';
+            waterAmount.textContent = currentWater;
+            waterProgress.style.width = percentage + '%';
+            waterPercentage.textContent = Math.round(percentage) + '% tamamlandı';
+            
+            // Hedef aşıldıysa rengi değiştir
+            if (percentage >= 100) {
+                waterProgress.classList.remove('bg-info');
+                waterProgress.classList.add('bg-success');
+            } else {
+                waterProgress.classList.remove('bg-success');
+                waterProgress.classList.add('bg-info');
+            }
+        }
+        
+        // Su içme geçmişini gösterme
+        function renderWaterHistory() {
+            const historyContainer = document.getElementById('waterHistory');
+            
+            // Geçmiş boşsa
+            if (waterHistory.length === 0) {
+                historyContainer.innerHTML = `
+                    <div class="text-center text-muted py-5">
+                        <i class="bi bi-droplet" style="font-size: 2rem;"></i>
+                        <p class="mt-3">Henüz kayıt yok</p>
+                        <p class="small">Su içtiğinizde kayıtlar burada görünecek</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Geçmişi listele (en son en üstte)
+            historyContainer.innerHTML = '';
+            for (let i = waterHistory.length - 1; i >= 0; i--) {
+                const item = waterHistory[i];
+                const historyItem = document.createElement('div');
+                historyItem.className = 'water-history-item';
+                historyItem.innerHTML = `
+                    <div>
+                        <i class="bi bi-droplet-fill text-info me-2"></i>
+                        <span>${item.amount} ml</span>
+                    </div>
+                    <div class="text-muted">${item.time}</div>
+                `;
+                historyContainer.appendChild(historyItem);
+            }
+        }
+        
+        // Verileri localStorage'a kaydetme
+        function saveWaterData() {
+            const today = new Date().toLocaleDateString('tr-TR');
+            
+            const waterData = {
+                date: today,
+                amount: currentWater,
+                history: waterHistory
+            };
+            
+            localStorage.setItem('waterData', JSON.stringify(waterData));
+            
+            // Haftalık verileri de güncelle
+            updateWeeklyData(today, currentWater);
+        }
+        
+        // Haftalık verileri güncelleme
+        function updateWeeklyData(today, amount) {
+            let weeklyData = {};
+            
+            if (localStorage.getItem('weeklyWaterData')) {
+                weeklyData = JSON.parse(localStorage.getItem('weeklyWaterData'));
+            }
+            
+            weeklyData[today] = amount;
+            
+            // Son 7 günü sakla
+            const dates = Object.keys(weeklyData).sort();
+            if (dates.length > 7) {
+                delete weeklyData[dates[0]];
+            }
+            
+            localStorage.setItem('weeklyWaterData', JSON.stringify(weeklyData));
+            
+            // Grafiği güncelle
+            renderWeeklyChart();
+        }
+        
+        // Haftalık grafiği oluşturma
+        function renderWeeklyChart() {
+            const ctx = document.getElementById('weeklyWaterChart').getContext('2d');
+            
+            // Mevcut grafiği temizle
+            if (window.weeklyChart) {
+                window.weeklyChart.destroy();
+            }
+            
+            // Haftalık verileri al
+            let weeklyData = {};
+            if (localStorage.getItem('weeklyWaterData')) {
+                weeklyData = JSON.parse(localStorage.getItem('weeklyWaterData'));
+            }
+            
+            // Son 7 günü göster
+            const days = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
+            const today = new Date();
+            const labels = [];
+            const data = [];
+            
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(today.getDate() - i);
+                
+                const dateString = date.toLocaleDateString('tr-TR');
+                const dayName = days[date.getDay()];
+                
+                labels.push(dayName);
+                data.push(weeklyData[dateString] || 0);
+            }
+            
+            // Grafiği oluştur
+            window.weeklyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Su Tüketimi (ml)',
+                        data: data,
+                        backgroundColor: 'rgba(0, 153, 247, 0.5)',
+                        borderColor: 'rgba(0, 153, 247, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 4000,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + ' ml';
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        annotation: {
+                            annotations: {
+                                line1: {
+                                    type: 'line',
+                                    yMin: 3500,
+                                    yMax: 3500,
+                                    borderColor: 'rgb(25, 135, 84)',
+                                    borderWidth: 2,
+                                    borderDash: [5, 5],
+                                    label: {
+                                        content: 'Hedef',
+                                        enabled: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
