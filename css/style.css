@@ -146,8 +146,8 @@ body {
 footer {
     background-color: #343a40;
     color: white;
-    padding: 2rem 0;
-    margin-top: 3rem;
+    padding: 1.5rem 0;
+    margin-top: 1.5rem;
 }
 .category-badge {
     font-size: 0.8rem;
@@ -160,8 +160,36 @@ footer {
     z-index: 999;
 }
 
+/* Sayfa içi boşlukları azaltma */
+.container.mb-5 {
+    margin-bottom: 1.5rem !important;
+}
+
+.row.mt-4, .row.mt-5 {
+    margin-top: 1.5rem !important;
+}
+
+.row.mb-4 {
+    margin-bottom: 1rem !important;
+}
+
 /* Mobil cihazlar için iyileştirmeler */
 @media (max-width: 768px) {
+    footer {
+        padding: 1rem 0;
+        margin-top: 1rem;
+    }
+    .container.mb-5 {
+        margin-bottom: 1rem !important;
+    }
+    
+    .row.mt-4, .row.mt-5 {
+        margin-top: 1rem !important;
+    }
+    
+    .row.mb-4 {
+        margin-bottom: 0.75rem !important;
+    }
     .header h1 {
         font-size: 1.8rem;
     }
