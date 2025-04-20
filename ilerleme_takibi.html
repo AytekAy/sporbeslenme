@@ -2,30 +2,13 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>İlerleme Takibi - Spor ve Beslenme Planları</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        .header {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            border-radius: 0 0 10px 10px;
-        }
-        .card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+        /* İlerleme takibi sayfası için özel stiller */
         .card-header {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white;
@@ -46,16 +29,30 @@
         .progress-table th {
             background-color: #f1f1f1;
         }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
         .chart-container {
             position: relative;
             height: 300px;
             width: 100%;
+        }
+        
+        /* Mobil için ek optimizasyonlar */
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 250px;
+            }
+            .progress-table {
+                font-size: 0.85rem;
+            }
+            .card-body {
+                padding: 0.75rem;
+            }
+            .form-control {
+                font-size: 0.9rem;
+            }
+            .btn-custom {
+                font-size: 0.9rem;
+                padding: 0.375rem 0.75rem;
+            }
         }
     </style>
 </head>

@@ -1090,27 +1090,91 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Video placeholder'ları gerçek videolara dönüştüren fonksiyon
+    // Sayfa yükleme performansını artırmak için
     document.addEventListener('DOMContentLoaded', function() {
-        const videoPlaceholders = document.querySelectorAll('.video-placeholder');
+        // Sadece görünür olan video placeholder'ları işleme
+        function setupVisibleVideoPlaceholders() {
+            const videoPlaceholders = document.querySelectorAll('.video-placeholder:not(.initialized)');
+            
+            videoPlaceholders.forEach(placeholder => {
+                // IntersectionObserver ile sadece görünür olduğunda işlem yap
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Görünür olduğunda click event'ini ekle
+                            setupPlaceholder(placeholder);
+                            observer.unobserve(placeholder); // Artık gözlemlemeyi bırak
+                        }
+                    });
+                }, { threshold: 0.1 }); // %10'u görünür olduğunda tetikle
+                
+                observer.observe(placeholder);
+            });
+        }
         
-        videoPlaceholders.forEach(function(placeholder) {
+        function setupPlaceholder(placeholder) {
+            const videoId = placeholder.getAttribute('data-video-id');
+            
+            // Placeholder'ı initialize edildi olarak işaretle
+            placeholder.classList.add('initialized');
+            
             placeholder.addEventListener('click', function() {
-                const videoId = this.getAttribute('data-video-id');
+                // Video iframe'ini oluştur ve placeholder'ı değiştir
                 const iframe = document.createElement('iframe');
+                iframe.width = '100%';
+                iframe.height = window.innerWidth < 768 ? '200' : '315';
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.title = 'YouTube video player';
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
                 
-                iframe.setAttribute('width', '560');
-                iframe.setAttribute('height', '315');
-                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
-                iframe.setAttribute('title', 'YouTube video player');
-                iframe.setAttribute('frameborder', '0');
-                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                iframe.setAttribute('allowfullscreen', '');
+                // Video container oluştur
+                const videoContainer = document.createElement('div');
+                videoContainer.className = 'video-container mt-3';
+                videoContainer.appendChild(iframe);
                 
-                // Placeholder'ı iframe ile değiştir
-                this.parentNode.replaceChild(iframe, this);
+                // Placeholder'ı video container ile değiştir
+                placeholder.parentNode.replaceChild(videoContainer, placeholder);
+            });
+        }
+        
+        // Sekme değiştiğinde sadece o sekmedeki videoları hazırla
+        const tabLinks = document.querySelectorAll('.nav-link');
+        tabLinks.forEach(tab => {
+            tab.addEventListener('shown.bs.tab', function() {
+                setupVisibleVideoPlaceholders();
             });
         });
+        
+        // Sayfa ilk yüklendiğinde aktif sekmedeki videoları hazırla
+        setupVisibleVideoPlaceholders();
+        
+        // Mobil cihazlarda performansı artırmak için
+        if (window.innerWidth < 768) {
+            // Büyük resimleri lazy load ile yükleme
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+            
+            // Sekme değişimini optimize et
+            const dayTabs = document.querySelectorAll('.day-tabs .nav-link');
+            dayTabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    // Sayfanın en üstüne kaydırmayı engelle
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('data-bs-target'));
+                    if (target) {
+                        // Bootstrap tab'ı manuel olarak aktifleştir
+                        const tabInstance = new bootstrap.Tab(this);
+                        tabInstance.show();
+                    }
+                });
+            });
+        }
     });
 </script>
 </body>

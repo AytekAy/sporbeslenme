@@ -2,30 +2,13 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Su Takibi - Spor ve Beslenme Planları</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        .header {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            border-radius: 0 0 10px 10px;
-        }
-        .card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+        /* Su takibi sayfası için özel stiller */
         .card-header {
             font-weight: bold;
         }
@@ -136,15 +119,36 @@
             background-color: #fff3cd;
             border-left: 5px solid #ffc107;
         }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
         .progress-water {
             height: 10px;
             border-radius: 5px;
+        }
+        
+        /* Mobil için ek optimizasyonlar */
+        @media (max-width: 768px) {
+            .water-container {
+                height: 250px;
+                width: 120px;
+            }
+            .water-counter {
+                font-size: 2rem;
+            }
+            .water-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                margin: 0 5px;
+            }
+            .water-mark {
+                font-size: 0.7rem;
+            }
+            .water-history-item {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            .card-body {
+                padding: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -160,8 +164,8 @@
         <div class="row mb-4">
             <div class="col-md-12">
                 <div class="alert alert-primary">
-                    <h4 class="alert-heading"><i class="bi bi-info-circle-fill"></i> Neden Su Takibi Önemli?</h4>
-                    <p>Böbrek taşı sorunu olan kişiler için günlük 3-4 litre su tüketimi kritik önem taşır. Yeterli su tüketimi, idrarın seyreltilmesine yardımcı olarak taş oluşumunu önler ve mevcut taşların daha kolay geçmesini sağlar.</p>
+                    <h5><i class="bi bi-info-circle"></i> Böbrek Taşı İçin Su Tüketimi Önemi</h5>
+                    <p>Böbrek taşı sorunu olan kişiler için günlük 4-5 litre su tüketimi önerilmektedir. Bu miktar, idrarı seyreltir ve böbrek taşı oluşumunu önlemeye yardımcı olur.</p>
                     <hr>
                     <p class="mb-0">Bu takip aracı, günlük su tüketiminizi kolayca izlemenize ve hedefinize ulaşmanıza yardımcı olacaktır.</p>
                 </div>
