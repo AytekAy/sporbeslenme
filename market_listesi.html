@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alışveriş Listesi</title>
+    <title>Market Listesi - Sağlıklı Beslenme Planı</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -87,8 +87,8 @@
 <body>
     <div class="header text-center">
         <div class="container">
-            <h1 class="display-4">Alışveriş Listesi</h1>
-            <p class="lead">Sağlıklı Beslenme ve Takviyeler İçin Market Listesi</p>
+            <h1 class="display-4">Market Listesi</h1>
+            <p class="lead">Sağlıklı Beslenme ve Performans İçin Alışveriş Rehberi</p>
             <a href="index.html" class="btn btn-outline-light mt-2">Ana Sayfaya Dön</a>
         </div>
     </div>
@@ -97,15 +97,16 @@
         <div class="row mb-4">
             <div class="col-md-12">
                 <h2 class="section-title">Alışveriş Listesi</h2>
-                <p>Bu liste, her iki beslenme planı için gerekli olan temel gıda ve takviyeleri içermektedir. Planınıza göre uygun ürünleri seçebilirsiniz.</p>
+                <p>Bu liste, özel beslenme ihtiyaçlarınız için hazırlanmış kapsamlı bir alışveriş rehberidir. Önerilen ürünler, hem performansınızı artırmaya hem de genel sağlığınızı desteklemeye yardımcı olacak şekilde özenle seçilmiştir.</p>
                 
                 <div class="alert alert-info">
-                    <h5>Alışveriş İpuçları</h5>
+                    <h5>Alışveriş Notları</h5>
                     <ul>
-                        <li>Mümkünse organik ürünleri tercih edin</li>
-                        <li>Taze sebze ve meyveleri mevsiminde alın</li>
-                        <li>Etiketleri okuyun ve katkı maddesi içermeyen ürünleri seçin</li>
-                        <li>Takviyeler için eczaneleri veya güvenilir markaları tercih edin</li>
+                        <li>Kırmızı ile işaretli ürünler Plan 1 için önerilmez, alternatiflerini tercih edin</li>
+                        <li>Mavi ile işaretli ürünler Plan 2 için önerilmez, alternatiflerini tercih edin</li>
+                        <li>Yeşil ile işaretli ürünler her iki plan için de uygundur</li>
+                        <li>Organik ürünleri tercih etmeye çalışın</li>
+                        <li>Paketli ürünlerde içindekiler listesini kontrol edin</li>
                     </ul>
                 </div>
             </div>
@@ -116,131 +117,91 @@
                 <div class="card common mb-4">
                     <div class="card-header">Protein Kaynakları</div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <input type="checkbox" id="item1">
-                            <label for="item1">Tavuk Göğsü (1 kg)</label>
-                            <span class="badge bg-success category-badge">Her İki Plan</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="item2">
-                            <label for="item2">Hindi Göğsü (500g)</label>
-                            <span class="badge bg-success category-badge">Her İki Plan</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="item3">
-                            <label for="item3">Yumurta (30 adet)</label>
-                            <span class="badge bg-success category-badge">Her İki Plan</span>
-                        </li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="protein1">
+                            <label class="form-check-label text-success" for="protein1">Tavuk göğsü (yağsız) - Her iki plan için uygun</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="protein2">
+                            <label class="form-check-label text-success" for="protein2">Hindi göğsü - Her iki plan için uygun</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="protein5">
+                            <label class="form-check-label text-primary" for="protein5">Yumurta - Sınırlı tüketin (Plan 1 için)</label>
+                        </div>
                         <li class="list-group-item">
                             <input type="checkbox" id="item4">
                             <label for="item4">Yağsız Kıyma (500g)</label>
                             <span class="badge bg-success category-badge">Her İki Plan</span>
                         </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="item5">
-                            <label for="item5">Ton Balığı (4 konserve)</label>
-                            <span class="badge bg-success category-badge">Her İki Plan</span>
-                        </li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="protein6">
+                            <label class="form-check-label text-danger" for="protein6">Ton balığı - Plan 1 için önerilmez</label>
+                        </div>
                         <li class="list-group-item">
                             <input type="checkbox" id="item6">
                             <label for="item6">Somon (400g)</label>
                             <span class="badge bg-success category-badge">Her İki Plan</span>
                         </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="item7">
-                            <label for="item7">Cottage Peyniri (400g)</label>
-                            <span class="badge bg-success category-badge">Her İki Plan</span>
-                        </li>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="protein3">
+                            <label class="form-check-label text-success" for="protein3">Beyaz balık (levrek, mezgit) - Her iki plan için uygun</label>
+                        </div>
                     </ul>
                 </div>
 
-                <div class="card plan-1 mb-4">
-                    <div class="card-header">Plan 1 Özel Ürünler</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan1-1">
-                            <label for="plan1-1">Hardline Thermo L-Karnitin + CLA One (1 şişe)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan1-2">
-                            <label for="plan1-2">ProteinOcean Pre-Workout (1 kutu)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan1-3">
-                            <label for="plan1-3">Sunberg Vegan Protein (1 kg)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan1-4">
-                            <label for="plan1-4">Bezelye Proteini (500g)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan1-5">
-                            <label for="plan1-5">Potasyum Sitrat (99 mg)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan1-6">
-                            <label for="plan1-6">Solgar Omega-3 (1 kutu)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan1-7">
-                            <label for="plan1-7">CLA Supplement (1 kutu)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                    </ul>
+                <div class="card mb-4">
+                    <div class="card-header">Plan 1: Yüksek Performans Takviyeleri</div>
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement1">
+                            <label class="form-check-label" for="supplement1">Bezelye Proteini (Sindirim dostu)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement2">
+                            <label class="form-check-label" for="supplement2">Omega-3 Balık Yağı (Solgar)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement3">
+                            <label class="form-check-label" for="supplement3">Performans Kompleksi (Enerji ve dayanıklılık)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement4">
+                            <label class="form-check-label" for="supplement4">Magnezyum Sitrat (Kas fonksiyonu)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement5">
+                            <label class="form-check-label" for="supplement5">L-Karnitin (Yağ yakımı desteği)</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="card plan-2 mb-4">
-                    <div class="card-header">Plan 2 Özel Ürünler</div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan2-1">
-                            <label for="plan2-1">ALCAR (Asetil L-Karnitin) (500 mg)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan2-2">
-                            <label for="plan2-2">Probiyotik (30 kapsül)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan2-3">
-                            <label for="plan2-3">Kollajen Peptidleri (300g)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan2-4">
-                            <label for="plan2-4">Slippery Elm + DGL (mide koruyucu)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan2-5">
-                            <label for="plan2-5">Pirinç Proteini (500g)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan2-6">
-                            <label for="plan2-6">Solgar Omega-3 (1 kutu)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan2-6">
-                            <label for="plan2-6">ALCAR (Asetil L-Karnitin)</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                        <li class="list-group-item">
-                            <input type="checkbox" id="plan2-7">
-                            <label for="plan2-7">Magnezyum Sitrat</label>
-                            <span class="badge bg-primary category-badge">Takviye</span>
-                        </li>
-                    </ul>
+                <div class="card mb-4">
+                    <div class="card-header">Plan 2: Dengeli Yaklaşım Takviyeleri</div>
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement6">
+                            <label class="form-check-label" for="supplement6">Pirinç Proteini (Hafif ve kolay sindirilebilir)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement7">
+                            <label class="form-check-label" for="supplement7">Koruyucu Formül (Sindirim sistemi desteği)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement8">
+                            <label class="form-check-label" for="supplement8">Kollajen Peptidleri (Genel sağlık desteği)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement9">
+                            <label class="form-check-label" for="supplement9">ALCAR (Asetil L-Karnitin, sindirimi kolay)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="supplement10">
+                            <label class="form-check-label" for="supplement10">Alfa Lipoik Asit (Metabolizma desteği)</label>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card common mb-4">
