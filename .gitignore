@@ -2,6 +2,9 @@
 Kisisel_Bilgiler/kisisel_veriler.txt
 sohbet_notlari.txt
 
+# Tüm .txt dosyaları
+*.txt
+
 # Genel dosyalar
 .DS_Store
 Thumbs.db
