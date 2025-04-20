@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan 2: Mide Dostu Spor Programı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #4e54c8;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .exercise-card {
+            border-left: 4px solid #4e54c8;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #4e54c8;
+        }
+        .nav-pills .nav-link {
+            color: #4e54c8;
+        }
+        .btn-custom {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+            border: none;
+            color: white;
+        }
+        .day-tabs .nav-link.active {
+            background-color: #4e54c8;
+            color: white;
+        }
+        .day-tabs .nav-link {
+            color: #4e54c8;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Mide Dostu Spor Programı</h1>
+            <p class="lead">Plan 2: Düşük-Orta Yoğunluklu Antrenman Programı</p>
+            <a href="index.html" class="btn btn-outline-light mt-2">Ana Sayfaya Dön</a>
+            <a href="plan2.html" class="btn btn-outline-light mt-2 ms-2">Beslenme Planına Dön</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2 class="section-title">Antrenman Programı Özeti</h2>
+                <p>Bu program, böbrek taşı öyküsü ve mide sorunları (gastrit, ülser, hiatal herni) olan kişiler için özel olarak tasarlanmış düşük-orta yoğunluklu bir antrenman programıdır. Günde tek antrenman içerir ve mide üzerinde baskı oluşturacak hareketlerden kaçınılmıştır.</p>
+                
+                <div class="alert alert-info">
+                    <h5>Önemli Hatırlatmalar</h5>
+                    <ul>
+                        <li>Antrenman öncesi ve sonrası bol su tüketmeyi unutmayın (böbrek taşı için kritik)</li>
+                        <li>Yemekten sonra en az 2 saat bekleyerek antrenmana başlayın</li>
+                        <li>Karın bölgesine baskı yapan hareketlerden kaçının (hiatal herni için)</li>
+                        <li>Herhangi bir ağrı veya rahatsızlık hissederseniz egzersizi durdurun</li>
+                        <li>Antrenman öncesi ısınma ve sonrası soğuma hareketlerini ihmal etmeyin</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-pills mb-4" id="mainTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="morning-tab" data-bs-toggle="tab" data-bs-target="#morning" type="button" role="tab">Sabah Antrenmanı</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="mainTabContent">
+            <!-- Sabah Antrenmanı Tab -->
+            <div class="tab-pane fade show active" id="morning" role="tabpanel" aria-labelledby="morning-tab">
+                <h3 class="section-title">Sabah Antrenmanı (07:45 - 08:30)</h3>
+                <p>Sabah antrenmanı, haftanın her günü farklı kas gruplarını hedefleyen hafif kuvvet antrenmanı ve düşük yoğunluklu kardiyo içerir.</p>
+                
+                <ul class="nav nav-tabs day-tabs mb-4" id="dayTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="monday-tab" data-bs-toggle="tab" data-bs-target="#monday" type="button" role="tab">Pazartesi<br>Tam Vücut</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tuesday-tab" data-bs-toggle="tab" data-bs-target="#tuesday" type="button" role="tab">Salı<br>Kardiyo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="wednesday-tab" data-bs-toggle="tab" data-bs-target="#wednesday" type="button" role="tab">Çarşamba<br>Üst Vücut</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="thursday-tab" data-bs-toggle="tab" data-bs-target="#thursday" type="button" role="tab">Perşembe<br>Kardiyo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="friday-tab" data-bs-toggle="tab" data-bs-target="#friday" type="button" role="tab">Cuma<br>Alt Vücut</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="dayTabContent">
+                    <!-- Pazartesi Tab -->
+                    <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">
+                        <h4 class="section-title">Pazartesi: Tam Vücut</h4>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">Isınma (5 dakika)</div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Hafif tempoda yürüyüş: 3 dakika</li>
+                                    <li>Dinamik esneme: 2 dakika</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card exercise-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dumbbell Chest Press (Dik Oturarak)</h5>
+                                        <p class="card-text">
+                                            <strong>Set/Tekrar:</strong> 3 set x 12-15 tekrar<br>
+                                            <strong>Ağırlık:</strong> Hafif-orta ağırlık (15 tekrarı rahatça tamamlayabileceğiniz)<br>
+                                            <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
+                                            <strong>Notlar:</strong> Dik oturarak yapın, yatarak yapmayın (mide için daha uygun)
+                                        </p>
+                                        <div class="video-container mt-3">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/VmB1G1K7v94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card exercise-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Seated Row (Oturarak Kürek)</h5>
+                                        <p class="card-text">
+                                            <strong>Set/Tekrar:</strong> 3 set x 12-15 tekrar<br>
+                                            <strong>Ağırlık:</strong> Hafif-orta ağırlık (15 tekrarı rahatça tamamlayabileceğiniz)<br>
+                                            <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
+                                            <strong>Notlar:</strong> Sırtı dik tutarak, kontrollü bir şekilde çekin
+                                        </p>
+                                        <div class="video-container mt-3">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GZbfZ033f74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card exercise-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dumbbell Lateral Raise (Omuz Yan Açma)</h5>
+                                        <p class="card-text">
+                                            <strong>Set/Tekrar:</strong> 3 set x 12 tekrar<br>
+                                            <strong>Ağırlık:</strong> Çok hafif ağırlık (2-4 kg)<br>
+                                            <strong>Dinlenme:</strong> Setler arası 45-60 saniye<br>
+                                            <strong>Notlar:</strong> Dirsekleri hafif bükülü tutarak, kontrollü bir şekilde kaldırın
+                                        </p>
+                                        <div class="video-container mt-3">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/3VcKaXpzqRo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card exercise-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Leg Press (Bacak Presi)</h5>
+                                        <p class="card-text">
+                                            <strong>Set/Tekrar:</strong> 3 set x 15 tekrar<br>
+                                            <strong>Ağırlık:</strong> Orta ağırlık (15 tekrarı tamamlayabileceğiniz)<br>
+                                            <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
+                                            <strong>Notlar:</strong> Nefes kontrolüne dikkat edin, ıkınmayın (mide fıtığı için önemli)
+                                        </p>
+                                        <div class="video-container mt-3">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/IZxyjW7MPJQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card exercise-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Standing Bicep Curl (Ayakta Biceps)</h5>
+                                        <p class="card-text">
+                                            <strong>Set/Tekrar:</strong> 2 set x 12-15 tekrar<br>
+                                            <strong>Ağırlık:</strong> Hafif ağırlık (15 tekrarı rahatça tamamlayabileceğiniz)<br>
+                                            <strong>Dinlenme:</strong> Setler arası 45-60 saniye<br>
+                                            <strong>Notlar:</strong> Dirsekleri sabit tutarak sadece ön kolları hareket ettirin
+                                        </p>
+                                        <div class="video-container mt-3">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ykJmrZ5v0Oo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">Düşük Yoğunluklu Kardiyo (10 dakika)</div>
+                            <div class="card-body">
+                                <p>Kalp atış hızınızı maksimumun %60-70'inde tutarak 10 dakika sürekli kardiyo:</p>
+                                <ul>
+                                    <li>Yürüyüş bandı: Eğim %1, hız 5-6 km/saat</li>
+                                    <li>Alternatif: Eliptik trainer (düşük direnç)</li>
+                                </ul>
+                                <div class="video-container mt-3">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nRiJVZDpdL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">Soğuma (5 dakika)</div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Hafif tempoda yürüyüş: 2 dakika</li>
+                                    <li>Statik esneme: 3 dakika (çalıştırılan kasları esnetin)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Diğer günler için benzer yapı -->
+                    <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
+                        <h4 class="section-title">Salı: Kardiyo</h4>
+                        <p>Salı günü antrenman içeriği için lütfen web sitesinin tam versiyonunu kontrol edin.</p>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
+                        <h4 class="section-title">Çarşamba: Üst Vücut</h4>
+                        <p>Çarşamba günü antrenman içeriği için lütfen web sitesinin tam versiyonunu kontrol edin.</p>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
+                        <h4 class="section-title">Perşembe: Kardiyo</h4>
+                        <p>Perşembe günü antrenman içeriği için lütfen web sitesinin tam versiyonunu kontrol edin.</p>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
+                        <h4 class="section-title">Cuma: Alt Vücut</h4>
+                        <p>Cuma günü antrenman içeriği için lütfen web sitesinin tam versiyonunu kontrol edin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-warning mt-4">
+            <h5>Mide Sorunları İçin Özel Uyarılar</h5>
+            <ul>
+                <li>Yemekten sonra en az 2 saat bekleyerek antrenmana başlayın</li>
+                <li>Karın bölgesine baskı yapan hareketlerden kaçının (hiatal herni için)</li>
+                <li>Nefes kontrolüne dikkat edin, ıkınmayın (mide fıtığı için önemli)</li>
+                <li>Egzersiz sırasında mide yanması hissederseniz hemen durun</li>
+                <li>Antrenman öncesi Slippery Elm + DGL takviyenizi almayı unutmayın</li>
+                <li>Antrenman sonrası protein takviyesini yarım doz olarak alın</li>
+            </ul>
+        </div>
+        
+        <div class="alert alert-warning mt-4">
+            <h5>Böbrek Taşı İçin Özel Uyarılar</h5>
+            <ul>
+                <li>Antrenman sırasında ve sonrasında bol su için (her 15 dakikada bir yudum)</li>
+                <li>Aşırı terleme durumunda elektrolit dengenizi korumak için potasyum sitrat takviyenizi almayı unutmayın</li>
+                <li>Antrenman sonrası protein takviyesini bol su ile tüketin</li>
+                <li>Kreatin içeren takviyelerden kaçının</li>
+            </ul>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-custom">Ana Sayfaya Dön</a>
+            <a href="plan2.html" class="btn btn-outline-secondary ms-2">Beslenme Planına Dön</a>
+            <a href="plan1spor.html" class="btn btn-outline-secondary ms-2">Plan 1 Spor Programı</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Önemli Not</h4>
+                    <p>Bu plandaki tüm öneriler, belirtilen sağlık durumları göz önünde bulundurularak hazırlanmıştır. Herhangi bir egzersiz programına başlamadan önce mutlaka doktorunuza danışınız.</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>İletişim</h4>
+                    <p>Sorularınız için iletişime geçebilirsiniz.</p>
+                    <p>GitHub: <a href="https://github.com/AytekAy/sporbeslenme" class="text-white">github.com/AytekAy/sporbeslenme</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
