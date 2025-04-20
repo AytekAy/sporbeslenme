@@ -1139,11 +1139,44 @@
             });
         }
         
-        // Sekme değiştiğinde sadece o sekmedeki videoları hazırla
-        const tabLinks = document.querySelectorAll('.nav-link');
-        tabLinks.forEach(tab => {
-            tab.addEventListener('shown.bs.tab', function() {
-                setupVisibleVideoPlaceholders();
+        // Ana sekme geçişlerini optimize et (sabah/akşam antrenmanları)
+        const mainTabLinks = document.querySelectorAll('#mainTab .nav-link');
+        mainTabLinks.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                try {
+                    e.preventDefault();
+                    
+                    // Sekme değişimini geciktirerek bellek yönetimini iyileştir
+                    setTimeout(() => {
+                        const targetId = this.getAttribute('data-bs-target');
+                        const target = document.querySelector(targetId);
+                        
+                        if (target) {
+                            // Önce tüm ana sekmeleri gizle
+                            document.querySelectorAll('#mainTabContent > .tab-pane').forEach(pane => {
+                                pane.classList.remove('show', 'active');
+                            });
+                            
+                            // Sonra hedef sekmeyi göster
+                            target.classList.add('show', 'active');
+                            
+                            // Tüm ana sekme butonlarını pasif yap
+                            document.querySelectorAll('#mainTab .nav-link').forEach(link => {
+                                link.classList.remove('active');
+                                link.setAttribute('aria-selected', 'false');
+                            });
+                            
+                            // Tıklanan sekme butonunu aktif yap
+                            this.classList.add('active');
+                            this.setAttribute('aria-selected', 'true');
+                            
+                            // Görünür video placeholder'ları hazırla
+                            setupVisibleVideoPlaceholders();
+                        }
+                    }, 50);
+                } catch (error) {
+                    console.error('Ana sekme değiştirme hatası:', error);
+                }
             });
         });
         
@@ -1160,17 +1193,44 @@
                 }
             });
             
-            // Sekme değişimini optimize et
+            // Sekme değişimini optimize et ve çökmeyi önle
             const dayTabs = document.querySelectorAll('.day-tabs .nav-link');
             dayTabs.forEach(tab => {
                 tab.addEventListener('click', function(e) {
-                    // Sayfanın en üstüne kaydırmayı engelle
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('data-bs-target'));
-                    if (target) {
-                        // Bootstrap tab'ı manuel olarak aktifleştir
-                        const tabInstance = new bootstrap.Tab(this);
-                        tabInstance.show();
+                    try {
+                        // Sayfanın en üstüne kaydırmayı engelle
+                        e.preventDefault();
+                        
+                        // Sekme değişimini geciktirerek bellek yönetimini iyileştir
+                        setTimeout(() => {
+                            const targetId = this.getAttribute('data-bs-target');
+                            const target = document.querySelector(targetId);
+                            
+                            if (target) {
+                                // Önce tüm sekmeleri gizle
+                                document.querySelectorAll('.tab-pane').forEach(pane => {
+                                    pane.classList.remove('show', 'active');
+                                });
+                                
+                                // Sonra hedef sekmeyi göster
+                                target.classList.add('show', 'active');
+                                
+                                // Tüm sekme butonlarını pasif yap
+                                document.querySelectorAll('.day-tabs .nav-link').forEach(link => {
+                                    link.classList.remove('active');
+                                    link.setAttribute('aria-selected', 'false');
+                                });
+                                
+                                // Tıklanan sekme butonunu aktif yap
+                                this.classList.add('active');
+                                this.setAttribute('aria-selected', 'true');
+                                
+                                // Görünür video placeholder'ları hazırla
+                                setupVisibleVideoPlaceholders();
+                            }
+                        }, 50);
+                    } catch (error) {
+                        console.error('Sekme değiştirme hatası:', error);
                     }
                 });
             });
