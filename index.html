@@ -2,29 +2,20 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Spor ve Beslenme Planları</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        .header {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            border-radius: 0 0 10px 10px;
-        }
+        /* Sadece index.html'e özel stiller */
         .plan-card {
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
             height: 100%;
+            margin-bottom: 20px;
         }
         .plan-card:hover {
             transform: translateY(-5px);
@@ -48,46 +39,28 @@
             position: relative;
             padding-left: 1.5rem;
         }
-        .feature-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #38ef7d;
-            font-weight: bold;
-        }
-        .plan-2 .feature-list li:before {
-            color: #4e54c8;
-        }
-        .btn-custom-1 {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            border: none;
-        }
-        .btn-custom-2 {
-            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
-            border: none;
-        }
-        .section-title {
-            position: relative;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        }
-        .comparison-table th {
-            background-color: #f8f9fa;
-        }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
+        
+        /* Mobil cihazlar için ek optimizasyonlar */
+        @media (max-width: 768px) {
+            .plan-card {
+                margin-bottom: 15px;
+            }
+            .plan-header {
+                padding: 1rem;
+            }
+            .plan-header h3 {
+                font-size: 1.3rem;
+            }
+            .plan-body {
+                padding: 1rem;
+            }
+            .feature-list li {
+                font-size: 0.9rem;
+            }
+            .btn-lg {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -120,12 +93,11 @@
                             <li>2-3 kg / 2 hafta kilo kaybı</li>
                             <li>Yüksek protein alımı (140g/gün)</li>
                             <li>Yüksek yoğunluklu antrenman programı</li>
-                            <li>L-Karnitin + CLA takviye stratejisi</li>
-                            <li>Böbrek taşı riskini minimize eden beslenme</li>
-                            <li>Günlük 4-5 litre su tüketimi</li>
+                            <li>Böbrek taşı oluşumunu engelleyen takviyeler</li>
+                            <li>Günde 4-5 litre su tüketimi</li>
                         </ul>
-                        <div class="d-grid gap-2 mt-4">
-                            <a href="plan1.html" class="btn btn-custom-1 text-white">Beslenme Planı</a>
+                        <div class="d-grid gap-2 d-md-block text-center mt-4">
+                            <a href="plan1.html" class="btn btn-custom-1 mb-2 mb-md-0">Beslenme Planını Görüntüle</a>
                             <a href="plan1spor.html" class="btn btn-outline-success">Spor Programı</a>
                         </div>
                     </div>
@@ -142,14 +114,13 @@
                         <h4 class="section-title">Özellikler</h4>
                         <ul class="feature-list">
                             <li>1.5-2 kg / 2 hafta kilo kaybı</li>
-                            <li>Mide dostu protein alımı (100-120g/gün)</li>
-                            <li>Düşük yoğunluklu, güvenli egzersizler</li>
-                            <li>Mide koruyucu takviye stratejisi</li>
-                            <li>Gastrit, ülser ve mide fıtığı dostu beslenme</li>
-                            <li>Küçük ve sık öğünler</li>
+                            <li>Orta protein alımı (100-120g/gün)</li>
+                            <li>Düşük-orta yoğunluklu antrenman programı</li>
+                            <li>Mide koruyucu takviyeler</li>
+                            <li>Günde 3-4 litre su tüketimi</li>
                         </ul>
-                        <div class="d-grid gap-2 mt-4">
-                            <a href="plan2.html" class="btn btn-custom-2 text-white">Beslenme Planı</a>
+                        <div class="d-grid gap-2 d-md-block text-center mt-4">
+                            <a href="plan2.html" class="btn btn-custom-2 mb-2 mb-md-0">Beslenme Planını Görüntüle</a>
                             <a href="plan2spor.html" class="btn btn-outline-primary">Spor Programı</a>
                         </div>
                     </div>
@@ -157,57 +128,85 @@
             </div>
         </div>
 
-        <div class="row mt-5 mb-5">
-            <div class="col-md-12 text-center">
-                <h2>Hafta Sonu Beslenme Programı</h2>
-                <p class="lead">Dinlenme günleriniz için özel beslenme planı</p>
-                <a href="haftasonu.html" class="btn btn-warning btn-lg mt-2">Hafta Sonu Beslenme Planını Görüntüle</a>
-                <p class="mt-2"><small>Simit kahvaltısı ve dinlenme günü beslenme önerileri</small></p>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h2 class="h4 mb-3">Hafta Sonu Beslenme</h2>
+                        <p>Dinlenme günleriniz için özel beslenme planı</p>
+                        <div class="d-grid">
+                            <a href="haftasonu.html" class="btn btn-warning">Hafta Sonu Planını Görüntüle</a>
+                        </div>
+                        <p class="mt-2"><small>Cumartesi-Pazar günleri için özel beslenme önerileri</small></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h2 class="h4 mb-3">Market Listesi</h2>
+                        <p>Beslenme planınız için gerekli tüm malzemeler</p>
+                        <div class="d-grid">
+                            <a href="market_listesi.html" class="btn btn-info">Market Listesini Görüntüle</a>
+                        </div>
+                        <p class="mt-2"><small>Yazdırılabilir alışveriş listesi ve takviye önerileri</small></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h2 class="h4 mb-3">İlerleme Takibi</h2>
+                        <p>Kilo ve ölçü takibi için interaktif araçlar</p>
+                        <div class="d-grid">
+                            <a href="ilerleme_takibi.html" class="btn btn-success">İlerleme Takibini Görüntüle</a>
+                        </div>
+                        <p class="mt-2"><small>Kilo, bel çevresi ve BMI takibi için interaktif araçlar</small></p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="row mt-5 mb-5">
-            <div class="col-md-12 text-center">
-                <h2>Market Alışveriş Listesi</h2>
-                <p class="lead">Planlarınız için gerekli tüm malzemeler</p>
-                <a href="market_listesi.html" class="btn btn-info btn-lg mt-2">Market Listesini Görüntüle</a>
-                <p class="mt-2"><small>Tüm gıdalar ve takviyeler için kapsamlı alışveriş listesi</small></p>
+        <div class="row mt-4 mb-4">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h2 class="h4 mb-3">Takviye Bilgileri</h2>
+                        <p>Böbrek taşı ve mide sorunları için güvenli takviye rehberi</p>
+                        <div class="d-grid">
+                            <a href="takviye_bilgileri.html" class="btn btn-primary">Takviye Bilgilerini Görüntüle</a>
+                        </div>
+                        <p class="mt-2"><small>Takviye kullanım kılavuzu ve dozaj bilgileri</small></p>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="row mt-5 mb-5">
-            <div class="col-md-12 text-center">
-                <h2>İlerleme Takibi</h2>
-                <p class="lead">Kilo verme ve sağlık hedeflerinizi izleyin</p>
-                <a href="ilerleme_takibi.html" class="btn btn-success btn-lg mt-2">İlerleme Takibini Görüntüle</a>
-                <p class="mt-2"><small>Kilo, bel çevresi ve BMI takibi için interaktif araçlar</small></p>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h2 class="h4 mb-3">Su Takibi</h2>
+                        <p>Böbrek taşı önleme için günlük su tüketimini takip edin</p>
+                        <div class="d-grid">
+                            <a href="su_takibi.html" class="btn btn-info">Su Takibini Görüntüle</a>
+                        </div>
+                        <p class="mt-2"><small>Günlük 3-4 litre su tüketimini takip etmek için interaktif araç</small></p>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="row mt-5 mb-5">
-            <div class="col-md-12 text-center">
-                <h2>Takviye Bilgileri</h2>
-                <p class="lead">Böbrek taşı ve mide sorunları için güvenli takviye rehberi</p>
-                <a href="takviye_bilgileri.html" class="btn btn-primary btn-lg mt-2">Takviye Bilgilerini Görüntüle</a>
-                <p class="mt-2"><small>Tüm takviyelerin detaylı açıklamaları, dozaj bilgileri ve güvenlik notları</small></p>
-            </div>
-        </div>
-
-        <div class="row mt-5 mb-5">
-            <div class="col-md-12 text-center">
-                <h2>Su Takibi</h2>
-                <p class="lead">Böbrek taşı önleme için günlük su tüketimini takip edin</p>
-                <a href="su_takibi.html" class="btn btn-info btn-lg mt-2">Su Takibini Görüntüle</a>
-                <p class="mt-2"><small>Günlük 3-4 litre su tüketimini takip etmek için interaktif araç</small></p>
-            </div>
-        </div>
-
-        <div class="row mt-5 mb-5">
-            <div class="col-md-12 text-center">
-                <h2>Acil Durum Planı</h2>
-                <p class="lead">Böbrek taşı ve mide sorunları için acil durum yönetimi</p>
-                <a href="acil_durum_plani.html" class="btn btn-danger btn-lg mt-2">Acil Durum Planını Görüntüle</a>
-                <p class="mt-2"><small>Ağrı ve alevlenmeler için acil müdahale planı ve beslenme değişiklikleri</small></p>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-danger">
+                    <div class="card-body text-center">
+                        <h2 class="h4 mb-3">Acil Durum Planı</h2>
+                        <p>Böbrek taşı ve mide sorunları için acil durum yönetimi</p>
+                        <div class="d-grid">
+                            <a href="acil_durum_plani.html" class="btn btn-danger">Acil Durum Planını Görüntüle</a>
+                        </div>
+                        <p class="mt-2"><small>Ağrı ve alevlenmeler için acil müdahale planı</small></p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -225,34 +224,34 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Hedef Kilo Kaybı</td>
+                                <td>Hedef Kilo</td>
                                 <td>2-3 kg / 2 hafta</td>
                                 <td>1.5-2 kg / 2 hafta</td>
                             </tr>
                             <tr>
-                                <td>Protein Alımı</td>
+                                <td>Protein</td>
                                 <td>140g/gün</td>
                                 <td>100-120g/gün</td>
                             </tr>
                             <tr>
-                                <td>Egzersiz Yoğunluğu</td>
-                                <td>Yüksek (HIIT + Kuvvet)</td>
-                                <td>Düşük-Orta (Sürekli Kardiyo)</td>
+                                <td>Egzersiz</td>
+                                <td>Yüksek (HIIT)</td>
+                                <td>Düşük-Orta (Kardiyo)</td>
                             </tr>
                             <tr>
-                                <td>Ana Takviyeler</td>
-                                <td>L-Karnitin, CLA, Pre-workout, Omega-3</td>
-                                <td>ALCAR, ALA, Kollajen, Mide Koruyucular</td>
+                                <td>Takviyeler</td>
+                                <td>L-Karnitin, CLA, Omega-3</td>
+                                <td>ALCAR, Kollajen, Mide Koruyucular</td>
                             </tr>
                             <tr>
                                 <td>Öğün Sıklığı</td>
-                                <td>3 ana + 2 ara öğün</td>
-                                <td>3 ana + 3 ara öğün (daha küçük porsiyonlar)</td>
+                                <td>3 ana + 2 ara</td>
+                                <td>3 ana + 3 ara (küçük porsiyonlar)</td>
                             </tr>
                             <tr>
                                 <td>Uyku Düzeni</td>
                                 <td>Standart</td>
-                                <td>Baş kısmı yükseltilmiş yatak</td>
+                                <td>Baş kısmı yükseltilmiş</td>
                             </tr>
                         </tbody>
                     </table>
@@ -278,5 +277,20 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Sayfa yükleme performansını artırmak için
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobil cihazlarda performansı artırmak için
+        if (window.innerWidth < 768) {
+            // Büyük resimleri lazy load ile yükleme
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

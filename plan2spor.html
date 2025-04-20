@@ -2,63 +2,12 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Plan 2: Mide Dostu Spor Programı</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        .header {
-            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            border-radius: 0 0 10px 10px;
-        }
-        .section-title {
-            position: relative;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            color: #4e54c8;
-        }
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
-        }
-        .card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        .card-header {
-            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
-            color: white;
-            font-weight: bold;
-        }
-        .exercise-card {
-            border-left: 4px solid #4e54c8;
-        }
-        .nav-pills .nav-link.active {
-            background-color: #4e54c8;
-        }
-        .nav-pills .nav-link {
-            color: #4e54c8;
-        }
-        .btn-custom {
-            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
-            border: none;
-            color: white;
-        }
+        /* Plan2spor için özel stiller */
         .day-tabs .nav-link.active {
             background-color: #4e54c8;
             color: white;
@@ -66,25 +15,73 @@
         .day-tabs .nav-link {
             color: #4e54c8;
         }
-        .video-container {
+        .exercise-card {
+            border-left: 4px solid #4e54c8;
+        }
+        
+        /* Video placeholder stilleri */
+        .video-placeholder {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             max-width: 100%;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
         }
-        .video-container iframe {
+        
+        .video-placeholder img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
         }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
+        
+        .video-placeholder .play-button {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 0, 0, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        
+        .video-placeholder .play-button:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 20px;
+            border-color: transparent transparent transparent white;
+            margin-left: 5px;
+        }
+        
+        /* Mobil için ek optimizasyonlar */
+        @media (max-width: 768px) {
+            .video-placeholder .play-button {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .video-placeholder .play-button:before {
+                border-width: 8px 0 8px 16px;
+                margin-left: 4px;
+            }
+            
+            .day-tabs .nav-link {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.6rem;
+            }
         }
     </style>
 </head>
@@ -189,9 +186,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Dik oturarak yapın, yatarak yapmayın (mide için daha uygun)
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/VmB1G1K7v94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="VmB1G1K7v94">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/VmB1G1K7v94/maxresdefault.jpg" alt="Dumbbell Chest Press Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -206,9 +204,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
                                             <strong>Notlar:</strong> Sırtı dik tutarak, kontrollü bir şekilde çekin
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GZbfZ033f74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="GZbfZ033f74">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/GZbfZ033f74/maxresdefault.jpg" alt="Seated Row Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -223,9 +222,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 45-60 saniye<br>
                                             <strong>Notlar:</strong> Dirsekleri hafif bükülü tutarak, kontrollü bir şekilde kaldırın
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/3VcKaXpzqRo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="3VcKaXpzqRo">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/3VcKaXpzqRo/maxresdefault.jpg" alt="Dumbbell Lateral Raise Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -240,9 +240,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Nefes kontrolüne dikkat edin, ıkınmayın (mide fıtığı için önemli)
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/IZxyjW7MPJQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="IZxyjW7MPJQ">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/IZxyjW7MPJQ/maxresdefault.jpg" alt="Leg Press Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -257,9 +258,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 45-60 saniye<br>
                                             <strong>Notlar:</strong> Dirsekleri sabit tutarak sadece ön kolları hareket ettirin
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ykJmrZ5v0Oo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="ykJmrZ5v0Oo">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/ykJmrZ5v0Oo/maxresdefault.jpg" alt="Standing Bicep Curl Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -273,9 +275,10 @@
                                     <li>Yürüyüş bandı: Eğim %1, hız 5-6 km/saat</li>
                                     <li>Alternatif: Eliptik trainer (düşük direnç)</li>
                                 </ul>
-                                <div class="video-container mt-3">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nRiJVZDpdL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
+                                <div class="video-placeholder mt-3" data-video-id="nRiJVZDpdL0">
+                                     <div class="play-button"></div>
+                                     <img src="https://img.youtube.com/vi/nRiJVZDpdL0/maxresdefault.jpg" alt="Low Intensity Cardio Video" loading="lazy">
+                                 </div>
                             </div>
                         </div>
                         
@@ -323,9 +326,10 @@
                                             <li>Yürüyüş bandı: Eğim %0-1, hız 5-6 km/saat (10 dakika)</li>
                                             <li>Eliptik trainer: Düşük direnç (10 dakika)</li>
                                         </ul>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/nRiJVZDpdL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="nRiJVZDpdL0">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/nRiJVZDpdL0/maxresdefault.jpg" alt="Low Intensity Cardio Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -348,9 +352,10 @@
                                             <li>Quadriceps germe (her bacak için 30 saniye)</li>
                                             <li>Sırt germe (30 saniye)</li>
                                         </ul>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qULTwquOuT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="qULTwquOuT4">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/qULTwquOuT4/maxresdefault.jpg" alt="Flexibility & Mobility Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -395,9 +400,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 90 saniye<br>
                                             <strong>Notlar:</strong> Dambili göğüs hizasında tutarak, kontrollü bir şekilde çömelin
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/MeIiIdhvXT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="MeIiIdhvXT4">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/MeIiIdhvXT4/maxresdefault.jpg" alt="Goblet Squat Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -412,9 +418,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Hareketi yavaş ve kontrollü yapın, ani hareketlerden kaçının
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/YyvSfVjQeL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="YyvSfVjQeL0">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/YyvSfVjQeL0/maxresdefault.jpg" alt="Leg Extension Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -429,9 +436,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ELOCsoDSmrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="ELOCsoDSmrg">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/ELOCsoDSmrg/maxresdefault.jpg" alt="Seated Leg Curl Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -446,9 +454,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qEwKCR5JCog" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="qEwKCR5JCog">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/qEwKCR5JCog/maxresdefault.jpg" alt="Seated Dumbbell Shoulder Press Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -463,9 +472,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/3VcKaXpzqRo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="3VcKaXpzqRo">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/3VcKaXpzqRo/maxresdefault.jpg" alt="Seated Lateral Raise Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -479,9 +489,10 @@
                                     <li>Yürüyüş bandı: Hız 5-6 km/saat (10 dakika)</li>
                                     <li>Alternatif: Düşük dirençli eliptik trainer</li>
                                 </ul>
-                                <div class="video-container mt-3">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nRiJVZDpdL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
+                                <div class="video-placeholder mt-3" data-video-id="nRiJVZDpdL0">
+                                     <div class="play-button"></div>
+                                     <img src="https://img.youtube.com/vi/nRiJVZDpdL0/maxresdefault.jpg" alt="Low Intensity Cardio Video" loading="lazy">
+                                 </div>
                             </div>
                         </div>
                         
@@ -528,9 +539,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 90 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır, eğimi 30 derece civarında tutun
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/0G2_XV7slIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="0G2_XV7slIg">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/0G2_XV7slIg/maxresdefault.jpg" alt="Incline Dumbbell Press Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -545,9 +557,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Hareketi yavaş ve kontrollü yapın, ani hareketlerden kaçının
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Iwe6AmxVf7o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="Iwe6AmxVf7o">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/Iwe6AmxVf7o/maxresdefault.jpg" alt="Cable Chest Fly Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -562,9 +575,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Makine desteği daha güvenli bir hareket sağlar
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/xUm0BiZCWlQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="xUm0BiZCWlQ">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/xUm0BiZCWlQ/maxresdefault.jpg" alt="Machine Chest Press Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -579,9 +593,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/YbX7Wd8jQ-Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="YbX7Wd8jQ-Q">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/YbX7Wd8jQ-Q/maxresdefault.jpg" alt="Seated Triceps Extension Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -596,9 +611,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
                                             <strong>Notlar:</strong> Dirsekleri sabit tutarak, kontrollü bir şekilde hareketi yapın
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/2-LAMcpzODU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="2-LAMcpzODU">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/2-LAMcpzODU/maxresdefault.jpg" alt="Cable Triceps Pushdown Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -612,9 +628,10 @@
                                     <li>Yürüyüş bandı: Hız 5-6 km/saat (10 dakika)</li>
                                     <li>Alternatif: Düşük dirençli eliptik trainer</li>
                                 </ul>
-                                <div class="video-container mt-3">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nRiJVZDpdL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
+                                <div class="video-placeholder mt-3" data-video-id="nRiJVZDpdL0">
+                                     <div class="play-button"></div>
+                                     <img src="https://img.youtube.com/vi/nRiJVZDpdL0/maxresdefault.jpg" alt="Low Intensity Cardio Video" loading="lazy">
+                                 </div>
                             </div>
                         </div>
                         
@@ -661,9 +678,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GZbfZ033f74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="GZbfZ033f74">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/GZbfZ033f74/maxresdefault.jpg" alt="Seated Cable Row Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -678,9 +696,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CAwf7n6Luuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="CAwf7n6Luuc">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/CAwf7n6Luuc/maxresdefault.jpg" alt="Lat Pulldown Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -695,9 +714,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/MeIiIdhvXT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="MeIiIdhvXT4">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/MeIiIdhvXT4/maxresdefault.jpg" alt="Seated Dumbbell Row Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -712,9 +732,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 45-60 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/sAq_ocpRh_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="sAq_ocpRh_I">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/sAq_ocpRh_I/maxresdefault.jpg" alt="Seated Dumbbell Curl Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -729,9 +750,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 45-60 saniye<br>
                                             <strong>Notlar:</strong> Dirsekleri sabit tutarak, kontrollü bir şekilde hareketi yapın
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/QZEqB6wUPxQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="QZEqB6wUPxQ">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/QZEqB6wUPxQ/maxresdefault.jpg" alt="Cable Biceps Curl Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -745,9 +767,10 @@
                                     <li>Yürüyüş bandı: Hız 5-6 km/saat (10 dakika)</li>
                                     <li>Alternatif: Düşük dirençli eliptik trainer</li>
                                 </ul>
-                                <div class="video-container mt-3">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nRiJVZDpdL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
+                                <div class="video-placeholder mt-3" data-video-id="nRiJVZDpdL0">
+                                     <div class="play-button"></div>
+                                     <img src="https://img.youtube.com/vi/nRiJVZDpdL0/maxresdefault.jpg" alt="Low Intensity Cardio Video" loading="lazy">
+                                 </div>
                             </div>
                         </div>
                         
@@ -813,9 +836,10 @@
                             <li>Yürüyüş bandı: 15 dakika (eğim: %0-1, hız: 5-6 km/saat)</li>
                             <li>Eliptik trainer: 15 dakika (düşük direnç)</li>
                         </ul>
-                        <div class="video-container mt-3">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/VmB1G1K7v94" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+                        <div class="video-placeholder mt-3" data-video-id="VmB1G1K7v94">
+                             <div class="play-button"></div>
+                             <img src="https://img.youtube.com/vi/VmB1G1K7v94/maxresdefault.jpg" alt="Low Intensity Cardio Video" loading="lazy">
+                         </div>
                     </div>
                 </div>
                 
@@ -830,9 +854,10 @@
                                     <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
                                     <strong>Notlar:</strong> Karın bölgesini kasmadan, düz bir sırtla yapın
                                 </p>
-                                <div class="video-container mt-3">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/U4s4mEQ5VqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
+                                <div class="video-placeholder mt-3" data-video-id="U4s4mEQ5VqU">
+                                     <div class="play-button"></div>
+                                     <img src="https://img.youtube.com/vi/U4s4mEQ5VqU/maxresdefault.jpg" alt="Light Arm Exercises Video" loading="lazy">
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -847,9 +872,10 @@
                                     <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
                                     <strong>Notlar:</strong> Karın bölgesini kasmadan, düz bir sırtla yapın
                                 </p>
-                                <div class="video-container mt-3">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YyvSfVjQeL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
+                                <div class="video-placeholder mt-3" data-video-id="YyvSfVjQeL0">
+                                     <div class="play-button"></div>
+                                     <img src="https://img.youtube.com/vi/YyvSfVjQeL0/maxresdefault.jpg" alt="Light Leg Exercises Video" loading="lazy">
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -899,9 +925,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60-90 saniye<br>
                                             <strong>Notlar:</strong> Oturma pozisyonu karın bölgesine baskıyı azaltır
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qEwKCR5JCog" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="qEwKCR5JCog">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/qEwKCR5JCog/maxresdefault.jpg" alt="Seated Dumbbell Shoulder Press Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -916,9 +943,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 60 saniye<br>
                                             <strong>Notlar:</strong> Sırtı dik tutarak, kontrollü bir şekilde çekin
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/GZbfZ033f74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="GZbfZ033f74">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/GZbfZ033f74/maxresdefault.jpg" alt="Seated Cable Row Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -933,9 +961,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 45-60 saniye<br>
                                             <strong>Notlar:</strong> Dirsekleri sabit tutarak sadece ön kolları hareket ettirin
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/sAq_ocpRh_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="sAq_ocpRh_I">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/sAq_ocpRh_I/maxresdefault.jpg" alt="Seated Bicep Curl Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -950,9 +979,10 @@
                                             <strong>Dinlenme:</strong> Setler arası 45-60 saniye<br>
                                             <strong>Notlar:</strong> Dirsekleri sabit tutarak, kontrollü bir şekilde hareketi yapın
                                         </p>
-                                        <div class="video-container mt-3">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/2-LAMcpzODU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        <div class="video-placeholder mt-3" data-video-id="2-LAMcpzODU">
+                                             <div class="play-button"></div>
+                                             <img src="https://img.youtube.com/vi/2-LAMcpzODU/maxresdefault.jpg" alt="Triceps Pushdown Video" loading="lazy">
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -966,9 +996,10 @@
                                     <li>Yürüyüş bandı: Hız 5-6 km/saat (10 dakika)</li>
                                     <li>Alternatif: Düşük dirençli eliptik trainer</li>
                                 </ul>
-                                <div class="video-container mt-3">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nRiJVZDpdL0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
+                                <div class="video-placeholder mt-3" data-video-id="nRiJVZDpdL0">
+                                     <div class="play-button"></div>
+                                     <img src="https://img.youtube.com/vi/nRiJVZDpdL0/maxresdefault.jpg" alt="Low Intensity Cardio Video" loading="lazy">
+                                 </div>
                             </div>
                         </div>
                         
@@ -1057,5 +1088,30 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Video placeholder'ları gerçek videolara dönüştüren fonksiyon
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoPlaceholders = document.querySelectorAll('.video-placeholder');
+        
+        videoPlaceholders.forEach(function(placeholder) {
+            placeholder.addEventListener('click', function() {
+                const videoId = this.getAttribute('data-video-id');
+                const iframe = document.createElement('iframe');
+                
+                iframe.setAttribute('width', '560');
+                iframe.setAttribute('height', '315');
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+                iframe.setAttribute('title', 'YouTube video player');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '');
+                
+                // Placeholder'ı iframe ile değiştir
+                this.parentNode.replaceChild(iframe, this);
+            });
+        });
+    });
+</script>
 </body>
 </html>
