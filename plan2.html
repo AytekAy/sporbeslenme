@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mide Dostu Kilo Verme Planı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #4e54c8;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .schedule-item {
+            border-left: 3px solid #4e54c8;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        .time {
+            font-weight: bold;
+            color: #4e54c8;
+        }
+        .supplement-card {
+            border-left: 4px solid #4e54c8;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #4e54c8;
+        }
+        .nav-pills .nav-link {
+            color: #4e54c8;
+        }
+        .btn-custom {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+            border: none;
+            color: white;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Mide Dostu Kilo Verme Planı</h1>
+            <p class="lead">2 Haftalık Güvenli Kilo Verme Programı (Böbrek Taşı + Mide Sorunları)</p>
+            <a href="index.html" class="btn btn-outline-light mt-2">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h2 class="section-title">Plan Özeti</h2>
+                <p>Bu plan, böbrek taşı öyküsü ve mide sorunları (gastrit, ülser, hiatal herni) olan kişiler için özel olarak tasarlanmış 2 haftalık bir kilo verme programıdır. Programın amacı, böbrek taşı ve mide sorunları riskini minimize ederken güvenli ve sürdürülebilir kilo kaybı sağlamaktır.</p>
+                
+                <div class="card mb-4">
+                    <div class="card-header">Hedefler</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>1.5-2 kg kilo kaybı (2 hafta)</li>
+                            <li>Bel çevresinde 1.5-2 cm azalma</li>
+                            <li>Kas kütlesini koruma</li>
+                            <li>Sindirim sistemi sağlığını iyileştirme</li>
+                            <li>Böbrek taşı ve mide sorunları riskini yönetme</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">Günlük Özet</div>
+                    <div class="card-body">
+                        <p><strong>Kalori:</strong> ~1700-1800</p>
+                        <p><strong>Protein:</strong> ~100-120g</p>
+                        <p><strong>Su:</strong> 3-4 litre</p>
+                        <p><strong>Adım:</strong> 10,000-12,000</p>
+                        <p><strong>Antrenman:</strong> Günde 1 kez (düşük yoğunluk)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-pills mb-4" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="schedule-tab" data-bs-toggle="tab" data-bs-target="#schedule" type="button" role="tab">Günlük Program</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="supplements-tab" data-bs-toggle="tab" data-bs-target="#supplements" type="button" role="tab">Takviyeler</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes" type="button" role="tab">Önemli Notlar</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <!-- Günlük Program Tab -->
+            <div class="tab-pane fade show active" id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
+                <h3 class="section-title">Hafta İçi Program (Pazartesi-Cuma)</h3>
+                
+                <div class="schedule-item">
+                    <p class="time">06:30 - Uyanış</p>
+                    <p>1 bardak ılık su + 1 tatlı kaşığı bal (mide koruyucu)</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">06:45 - Mide Koruyucu</p>
+                    <p>Slippery Elm + DGL karışımı: 1 kapsül (yemekten 20 dk önce)</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">07:00 - Hafif Kahvaltı</p>
+                    <p>Yulaf ezmesi (40g) + bal (1 tatlı kaşığı)</p>
+                    <p>Probiyotik yoğurt (150g)</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">07:15 - Takviyeler</p>
+                    <p>Solgar Omega-3: 1 kapsül (yemekle birlikte)</p>
+                    <p>ALCAR (Asetil L-Karnitin): 500 mg</p>
+                    <p>Potasyum Sitrat: 1 tablet (99 mg)</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">07:45 - 08:30 - Sabah Antrenmanı</p>
+                    <p>5 dakika ısınma</p>
+                    <p>30 dakika düşük yoğunluklu kardiyo (kalp atış hızı maksimumun %60-70'i)</p>
+                    <p>10 dakika hafif kuvvet egzersizleri (vücut ağırlığı ile)</p>
+                    <p>5 dakika soğuma</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">08:45 - Antrenman Sonrası</p>
+                    <p>Sunberg Vegan Protein: 1/2 servis (17g) + 200 ml su</p>
+                    <p>Kollajen Peptidleri: 5g</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">09:00 - 17:00 - İş Saatleri</p>
+                    <p>Ara öğün (10:30) - Az yağlı yoğurt (100g) + 1 adet meyve</p>
+                    <p>Öğle yemeği (13:00) - Yulaf (40g) + yoğurt (150g) + 1 tatlı kaşığı bal</p>
+                    <p>Ara öğün (15:30) - Badem (10 adet) + 1 adet meyve</p>
+                    <p>Su: Her saat başı 1 bardak (toplam 2 litre)</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">17:15 - Akşam Takviyesi</p>
+                    <p>Slippery Elm + DGL karışımı: 1 kapsül (yemekten 20 dk önce)</p>
+                    <p>ALA (Alfa Lipoik Asit): 300 mg</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">17:30 - Akşam Yemeği</p>
+                    <p>Protein kaynağı (120g et/balık/tavuk - ızgara veya haşlama)</p>
+                    <p>Kompleks karbonhidrat (1/3 bardak pirinç/kinoa)</p>
+                    <p>Sebzeler (buharda/haşlanmış - düşük asitli)</p>
+                    <p>1 tatlı kaşığı zeytinyağı</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">20:00 - Akşam Ara Öğünü</p>
+                    <p>Probiyotik yoğurt (100g) + 1 tatlı kaşığı bal</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">22:00 - Uyku Öncesi</p>
+                    <p>Papatya çayı (1 fincan)</p>
+                    <p>Magnezyum Sitrat: 200 mg</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">22:30 - Uyku</p>
+                    <p>Baş kısmı yükseltilmiş yatak (hiatal herni için)</p>
+                </div>
+                
+                <h3 class="section-title mt-5">Hafta Sonu Program (Cumartesi-Pazar)</h3>
+                <p>Hafta sonu dinlenme günleridir. Sabah spor salonu antrenmanı yoktur, kahvaltıda simit tüketimi serbesttir (kontrollü porsiyon). Takviye kullanımına devam edilir.</p>
+            </div>
+            
+            <!-- Takviyeler Tab -->
+            <div class="tab-pane fade" id="supplements" role="tabpanel" aria-labelledby="supplements-tab">
+                <h3 class="section-title">Takviye Listesi</h3>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Slippery Elm + DGL Karışımı</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Mide Koruyucu</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Slippery Elm (Kaygan Karaağaç) ve DGL (Deglisirize Meyan Kökü)<br>
+                            <strong>Kullanım:</strong> Yemeklerden 20 dakika önce 1 kapsül<br>
+                            <strong>Değerlendirme:</strong> Mide mukozasını korur, ülser ve gastrit semptomlarını hafifletir ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunberg Vegan Protein (Yarım Doz)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Protein Takviyesi</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her yarım serviste (17g) 12.5g protein<br>
+                            <strong>Kullanım:</strong> Antrenman sonrası 1/2 servis (17g) + 200 ml su<br>
+                            <strong>Değerlendirme:</strong> Düşük doz, mide sorunları için daha uygun, bitkisel protein kaynağı olması böbrek taşı riski açısından olumlu ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Kollajen Peptidleri</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Sindirim Sistemi Desteği</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Hidrolize kollajen peptidleri (5g)<br>
+                            <strong>Kullanım:</strong> Günde 1 kez, protein ile karıştırılarak<br>
+                            <strong>Değerlendirme:</strong> Sindirim sistemi mukozasını güçlendirir, mide ve bağırsak sağlığını destekler ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">ALCAR (Asetil L-Karnitin)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Metabolizma Desteği</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her kapsülde 500 mg Asetil L-Karnitin<br>
+                            <strong>Kullanım:</strong> Sabah kahvaltı ile 1 kapsül (500 mg)<br>
+                            <strong>Değerlendirme:</strong> L-Karnitin'in mide dostu versiyonu, kafeinsiz, yağ yakımını destekler ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">ALA (Alfa Lipoik Asit)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Antioksidan Desteği</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her kapsülde 300 mg Alfa Lipoik Asit<br>
+                            <strong>Kullanım:</strong> Akşam yemeği ile 1 kapsül (300 mg)<br>
+                            <strong>Değerlendirme:</strong> Metabolizmayı destekler, antioksidan etki gösterir, mide için güvenli ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Solgar Omega-3</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Sağlıklı Yağ Takviyesi</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her kapsülde 950 mg Omega-3 yağ asitleri (EPA ve DHA)<br>
+                            <strong>Kullanım:</strong> Günde 1 kapsül, yemekle birlikte<br>
+                            <strong>Değerlendirme:</strong> Omega-3 yağ asitleri genel olarak böbreklere zarar verme eğiliminde değildir, antiinflamatuar etki ile mide sağlığını destekler ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Potasyum Sitrat</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Böbrek Taşı Yönetimi</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her tablette 99 mg potasyum sitrat<br>
+                            <strong>Kullanım:</strong> Günde 1 tablet, bol su ile (kahvaltı ile)<br>
+                            <strong>Değerlendirme:</strong> İdrarı alkalize eder ve böbrek taşı oluşumunu önler ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Magnezyum Sitrat</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Kas ve Sinir Sağlığı</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her kapsülde 200 mg magnezyum (sitrat formunda)<br>
+                            <strong>Kullanım:</strong> Günde 1 kapsül, yatmadan önce<br>
+                            <strong>Değerlendirme:</strong> Kas gevşemesini destekler, uyku kalitesini artırır, böbrek taşı oluşumunu önlemeye yardımcı olur ✅
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Önemli Notlar Tab -->
+            <div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">
+                <h3 class="section-title">Önemli Notlar ve Uyarılar</h3>
+                
+                <div class="card mb-3">
+                    <div class="card-header">Mide Sorunları İçin Öneriler</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Yemekleri küçük porsiyonlar halinde ve sık sık tüketin</li>
+                            <li>Yemekleri iyi çiğneyin ve yavaş yiyin</li>
+                            <li>Asitli, baharatlı, kızartma ve işlenmiş gıdalardan kaçının</li>
+                            <li>Yatmadan en az 3 saat önce yemek yemeyi bırakın</li>
+                            <li>Yatak başınızı 15-20 cm yükseltin (hiatal herni için)</li>
+                            <li>Stres yönetimi için meditasyon ve derin nefes egzersizleri yapın</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-header">Böbrek Taşı İçin Öneriler</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Günlük su tüketimini asla ihmal etmeyin (minimum 3-4 litre)</li>
+                            <li>Oksalat içeriği yüksek besinlerden kaçının (ıspanak, çikolata, çay)</li>
+                            <li>Potasyum Sitrat kullanımı böbrek taşı oluşumunu önlemede kritik öneme sahiptir</li>
+                            <li>Haftada bir gün idrar pH'ını kontrol edin</li>
+                            <li>Kreatin içeren takviyelerden kaçının</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-header">Takviye Kullanımı</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Tüm takviyelere yarım dozla başlayın ve vücudunuzun tepkisini gözlemleyin</li>
+                            <li>Takviye kullanımı sırasında minimum 3-4 litre su tüketmeye özen gösterin</li>
+                            <li>Herhangi bir yan etki görürseniz kullanımı durdurun ve doktorunuza danışın</li>
+                            <li>Mide koruyucu takviyeleri (Slippery Elm + DGL) yemeklerden 20 dakika önce alın</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-header">Egzersiz Uyarıları</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Egzersiz sırasında bol su için (her 15 dakikada bir yudum)</li>
+                            <li>Aşırı yorgunluk hissederseniz egzersiz yoğunluğunu azaltın</li>
+                            <li>Karın bölgesine baskı yapan egzersizlerden kaçının (hiatal herni için)</li>
+                            <li>Yüksek yoğunluklu egzersizler yerine düşük-orta yoğunluklu, uzun süreli egzersizleri tercih edin</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning mt-4">
+                    <h5>Doktor Onayı</h5>
+                    <p>Bu plandaki tüm öneriler, belirtilen sağlık durumları göz önünde bulundurularak hazırlanmıştır. Herhangi bir beslenme veya takviye programına başlamadan önce mutlaka doktorunuza danışınız.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-custom">Ana Sayfaya Dön</a>
+            <a href="plan1.html" class="btn btn-outline-secondary ms-2">Plan 1: Böbrek Taşı Dostu</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Önemli Not</h4>
+                    <p>Bu plandaki tüm öneriler, belirtilen sağlık durumları göz önünde bulundurularak hazırlanmıştır. Herhangi bir beslenme veya takviye programına başlamadan önce mutlaka doktorunuza danışınız.</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>İletişim</h4>
+                    <p>Sorularınız için iletişime geçebilirsiniz.</p>
+                    <p>GitHub: <a href="https://github.com/AytekAy/sporbeslenme" class="text-white">github.com/AytekAy/sporbeslenme</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

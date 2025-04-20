@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Böbrek Taşı Dostu Kilo Verme Planı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #11998e;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            font-weight: bold;
+        }
+        .schedule-item {
+            border-left: 3px solid #11998e;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        .time {
+            font-weight: bold;
+            color: #11998e;
+        }
+        .supplement-card {
+            border-left: 4px solid #11998e;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #11998e;
+        }
+        .nav-pills .nav-link {
+            color: #11998e;
+        }
+        .btn-custom {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border: none;
+            color: white;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Böbrek Taşı Dostu Kilo Verme Planı</h1>
+            <p class="lead">2 Haftalık Hızlı ve Güvenli Kilo Verme Programı</p>
+            <a href="index.html" class="btn btn-outline-light mt-2">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h2 class="section-title">Plan Özeti</h2>
+                <p>Bu plan, böbrek taşı öyküsü olan kişiler için özel olarak tasarlanmış 2 haftalık bir kilo verme programıdır. Programın amacı, böbrek taşı riskini minimize ederken hızlı ve etkili kilo kaybı sağlamaktır.</p>
+                
+                <div class="card mb-4">
+                    <div class="card-header">Hedefler</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>2-3 kg kilo kaybı (2 hafta)</li>
+                            <li>Bel çevresinde 2-3 cm azalma</li>
+                            <li>Kas kütlesini koruma</li>
+                            <li>Metabolizmayı hızlandırma</li>
+                            <li>Böbrek taşı riskini yönetme</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">Günlük Özet</div>
+                    <div class="card-body">
+                        <p><strong>Kalori:</strong> ~1600</p>
+                        <p><strong>Protein:</strong> ~140g</p>
+                        <p><strong>Su:</strong> 4-5 litre</p>
+                        <p><strong>Adım:</strong> 12,000-15,000</p>
+                        <p><strong>Antrenman:</strong> Günde 2 kez (sabah/akşam)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="nav nav-pills mb-4" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="schedule-tab" data-bs-toggle="tab" data-bs-target="#schedule" type="button" role="tab">Günlük Program</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="supplements-tab" data-bs-toggle="tab" data-bs-target="#supplements" type="button" role="tab">Takviyeler</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes" type="button" role="tab">Önemli Notlar</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <!-- Günlük Program Tab -->
+            <div class="tab-pane fade show active" id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
+                <h3 class="section-title">Hafta İçi Program (Pazartesi-Cuma)</h3>
+                
+                <div class="schedule-item">
+                    <p class="time">06:30 - Uyanış</p>
+                    <p>1 bardak ılık su + yarım limon suyu (böbrek taşı için faydalı)</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">06:45 - Takviyeler</p>
+                    <p>Solgar Omega-3: 1 kapsül (yemekle birlikte)</p>
+                    <p>Hardline Thermo L-Karnitin + CLA One: 1 servis (20 ml) + 200 ml su</p>
+                    <p>Potasyum Sitrat: 1 tablet (99 mg)</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">07:05 - 08:30 - Sabah Antrenmanı</p>
+                    <p>ProteinOcean Pre-Workout: 1/4 doz (3.5g) + 300 ml su</p>
+                    <p>5 dakika ısınma</p>
+                    <p>30 dakika kuvvet antrenmanı (gün bazlı bölgeler)</p>
+                    <p>15 dakika HIIT (30 saniye sprint, 30 saniye yürüyüş)</p>
+                    <p>5 dakika soğuma</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">08:30 - Antrenman Sonrası</p>
+                    <p>Sunberg Vegan Protein: 1 servis (33.5g) + 250 ml su</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">09:00 - 17:00 - İş Saatleri</p>
+                    <p>Ara öğün (10:30) - Sağlıklı atıştırmalık</p>
+                    <p>Öğle yemeği (13:00) - Yulaf (50g) + yoğurt (150g)</p>
+                    <p>Ara öğün (15:30) - Sağlıklı atıştırmalık</p>
+                    <p>Su: Her saat başı 1 bardak (toplam 2 litre)</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">17:15 - 18:30 - Akşam Antrenmanı</p>
+                    <p>5 dakika ısınma</p>
+                    <p>40 dakika orta yoğunluklu kardiyo</p>
+                    <p>10 dakika core egzersizleri</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">19:00 - Akşam Yemeği</p>
+                    <p>Protein kaynağı (150g et/balık/tavuk)</p>
+                    <p>Kompleks karbonhidrat (1/2 bardak)</p>
+                    <p>Sebzeler (buharda/haşlanmış)</p>
+                    <p>1 yemek kaşığı zeytinyağı</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">19:15 - Akşam Takviyeleri</p>
+                    <p>Hardline Thermo L-Karnitin + CLA One: 1 servis (20 ml) + 200 ml su</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="time">22:30 - Uyku</p>
+                </div>
+                
+                <h3 class="section-title mt-5">Hafta Sonu Program (Cumartesi-Pazar)</h3>
+                <p>Hafta sonu dinlenme günleridir. Sabah spor salonu antrenmanı yoktur, kahvaltıda simit tüketimi serbesttir (kontrollü porsiyon). Takviye kullanımına devam edilir.</p>
+            </div>
+            
+            <!-- Takviyeler Tab -->
+            <div class="tab-pane fade" id="supplements" role="tabpanel" aria-labelledby="supplements-tab">
+                <h3 class="section-title">Takviye Listesi</h3>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">ProteinOcean Pre-Workout Supreme Gummy Bear</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Antrenman Öncesi</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Beta-Alanin (3200 mg), Betain (1000 mg), L-Sitrülin (1000 mg), L-Arjinin (2000 mg), Kafein (210 mg)<br>
+                            <strong>Kullanım:</strong> Antrenmandan 15-30 dakika önce 1/4 ölçek (3.5g) ile başlayın, 2. haftada 1/2 ölçeğe (7g) çıkarın<br>
+                            <strong>Böbrek Taşı Değerlendirmesi:</strong> Kreatin içermemesi böbrek taşı sorunu olanlar için olumlu ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunberg Vegan Protein</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Protein Takviyesi</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her serviste (33.5 g) 25 g protein, 1.7 g karbonhidrat, 2.31 g yağ<br>
+                            <strong>Kullanım:</strong> Antrenman sonrası 1 servis (33.5g) + 250 ml su<br>
+                            <strong>Böbrek Taşı Değerlendirmesi:</strong> Bitkisel protein kaynağı olması böbrek taşı riski açısından olumlu ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Solgar Omega-3</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Sağlıklı Yağ Takviyesi</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her kapsülde 950 mg Omega-3 yağ asitleri (EPA ve DHA)<br>
+                            <strong>Kullanım:</strong> Günde 1 kapsül, yemekle birlikte<br>
+                            <strong>Böbrek Taşı Değerlendirmesi:</strong> Omega-3 yağ asitleri genel olarak böbreklere zarar verme eğiliminde değildir ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Hardline Thermo L-Karnitin + CLA One</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Yağ Yakımı Desteği</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her serviste (10 ml) 2000 mg L-Karnitin + 100 mg Kafein, Her kapsülde 1000 mg aspir yağı (800 mg CLA)<br>
+                            <strong>Kullanım:</strong> Sabah kahvaltıdan 30 dakika önce 1 servis (20 ml) + 200 ml su, Akşam yemeği ile 1 servis (20 ml) + 200 ml su<br>
+                            <strong>Böbrek Taşı Değerlendirmesi:</strong> Sıvı form L-Karnitin hızlı emilim sağlar ve böbrek taşı sorunu olanlar için güvenli ✅
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card mb-3 supplement-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Potasyum Sitrat</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Böbrek Taşı Yönetimi</h6>
+                        <p class="card-text">
+                            <strong>İçerik:</strong> Her tablette 99 mg potasyum sitrat<br>
+                            <strong>Kullanım:</strong> Günde 1 tablet, bol su ile (kahvaltı ile)<br>
+                            <strong>Böbrek Taşı Değerlendirmesi:</strong> İdrarı alkalize eder ve böbrek taşı oluşumunu önler ✅
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Önemli Notlar Tab -->
+            <div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">
+                <h3 class="section-title">Önemli Notlar ve Uyarılar</h3>
+                
+                <div class="card mb-3">
+                    <div class="card-header">Böbrek Taşı İçin Öneriler</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Günlük su tüketimini asla ihmal etmeyin (minimum 4-5 litre)</li>
+                            <li>Oksalat içeriği yüksek besinlerden kaçının (ıspanak, çikolata, çay)</li>
+                            <li>Potasyum Sitrat kullanımı böbrek taşı oluşumunu önlemede kritik öneme sahiptir</li>
+                            <li>Haftada bir gün idrar pH'ını kontrol edin</li>
+                            <li>Kreatin içeren takviyelerden kaçının</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-header">Takviye Kullanımı</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Tüm takviyelere yarım dozla başlayın ve vücudunuzun tepkisini gözlemleyin</li>
+                            <li>Pre-workout ve L-Karnitin birlikte kullanılırsa toplam kafein miktarına dikkat edin (310mg)</li>
+                            <li>Takviye kullanımı sırasında minimum 3-4 litre su tüketmeye özen gösterin</li>
+                            <li>Herhangi bir yan etki görürseniz kullanımı durdurun ve doktorunuza danışın</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-header">Egzersiz Uyarıları</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Egzersiz sırasında bol su için (her 15 dakikada bir yudum)</li>
+                            <li>Aşırı yorgunluk hissederseniz egzersiz yoğunluğunu azaltın</li>
+                            <li>Eklem sağlığınıza dikkat edin, ağrı hissederseniz egzersiz yoğunluğunu azaltın</li>
+                            <li>Toparlanma sürelerine saygı gösterin</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning mt-4">
+                    <h5>Doktor Onayı</h5>
+                    <p>Bu plandaki tüm öneriler, belirtilen sağlık durumları göz önünde bulundurularak hazırlanmıştır. Herhangi bir beslenme veya takviye programına başlamadan önce mutlaka doktorunuza danışınız.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn btn-custom">Ana Sayfaya Dön</a>
+            <a href="plan2.html" class="btn btn-outline-secondary ms-2">Plan 2: Mide Dostu</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Önemli Not</h4>
+                    <p>Bu plandaki tüm öneriler, belirtilen sağlık durumları göz önünde bulundurularak hazırlanmıştır. Herhangi bir beslenme veya takviye programına başlamadan önce mutlaka doktorunuza danışınız.</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>İletişim</h4>
+                    <p>Sorularınız için iletişime geçebilirsiniz.</p>
+                    <p>GitHub: <a href="https://github.com/AytekAy/sporbeslenme" class="text-white">github.com/AytekAy/sporbeslenme</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

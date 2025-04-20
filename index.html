@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spor ve Beslenme Planları</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        .plan-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+        .plan-header {
+            padding: 1.5rem;
+            color: white;
+        }
+        .plan-1 .plan-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .plan-2 .plan-header {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+        }
+        .plan-body {
+            padding: 1.5rem;
+            background-color: white;
+        }
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #38ef7d;
+            font-weight: bold;
+        }
+        .plan-2 .feature-list li:before {
+            color: #4e54c8;
+        }
+        .btn-custom-1 {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border: none;
+        }
+        .btn-custom-2 {
+            background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+            border: none;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        }
+        .comparison-table th {
+            background-color: #f8f9fa;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="display-4">Spor ve Beslenme Planları</h1>
+            <p class="lead">Özel sağlık durumları için kişiselleştirilmiş beslenme ve takviye programları</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+                <h2>Kişiselleştirilmiş Planlar</h2>
+                <p class="lead">Sağlık durumunuza özel hazırlanmış beslenme ve takviye planları</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="plan-card plan-1">
+                    <div class="plan-header">
+                        <h3>Plan 1: Böbrek Taşı Dostu</h3>
+                        <p class="mb-0">Böbrek taşı öyküsü olan kişiler için</p>
+                    </div>
+                    <div class="plan-body">
+                        <h4 class="section-title">Özellikler</h4>
+                        <ul class="feature-list">
+                            <li>2-3 kg / 2 hafta kilo kaybı</li>
+                            <li>Yüksek protein alımı (140g/gün)</li>
+                            <li>Yüksek yoğunluklu antrenman programı</li>
+                            <li>L-Karnitin + CLA takviye stratejisi</li>
+                            <li>Böbrek taşı riskini minimize eden beslenme</li>
+                            <li>Günlük 4-5 litre su tüketimi</li>
+                        </ul>
+                        <div class="d-grid gap-2 mt-4">
+                            <a href="plan1.html" class="btn btn-custom-1 text-white">Planı Görüntüle</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="plan-card plan-2">
+                    <div class="plan-header">
+                        <h3>Plan 2: Mide Dostu</h3>
+                        <p class="mb-0">Böbrek taşı + mide sorunları için</p>
+                    </div>
+                    <div class="plan-body">
+                        <h4 class="section-title">Özellikler</h4>
+                        <ul class="feature-list">
+                            <li>1.5-2 kg / 2 hafta kilo kaybı</li>
+                            <li>Mide dostu protein alımı (100-120g/gün)</li>
+                            <li>Düşük yoğunluklu, güvenli egzersizler</li>
+                            <li>Mide koruyucu takviye stratejisi</li>
+                            <li>Gastrit, ülser ve mide fıtığı dostu beslenme</li>
+                            <li>Küçük ve sık öğünler</li>
+                        </ul>
+                        <div class="d-grid gap-2 mt-4">
+                            <a href="plan2.html" class="btn btn-custom-2 text-white">Planı Görüntüle</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2 class="section-title">Plan Karşılaştırması</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Özellik</th>
+                                <th>Plan 1: Böbrek Taşı Dostu</th>
+                                <th>Plan 2: Mide Dostu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hedef Kilo Kaybı</td>
+                                <td>2-3 kg / 2 hafta</td>
+                                <td>1.5-2 kg / 2 hafta</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Alımı</td>
+                                <td>140g/gün</td>
+                                <td>100-120g/gün</td>
+                            </tr>
+                            <tr>
+                                <td>Egzersiz Yoğunluğu</td>
+                                <td>Yüksek (HIIT + Kuvvet)</td>
+                                <td>Düşük-Orta (Sürekli Kardiyo)</td>
+                            </tr>
+                            <tr>
+                                <td>Ana Takviyeler</td>
+                                <td>L-Karnitin, CLA, Pre-workout, Omega-3</td>
+                                <td>ALCAR, ALA, Kollajen, Mide Koruyucular</td>
+                            </tr>
+                            <tr>
+                                <td>Öğün Sıklığı</td>
+                                <td>3 ana + 2 ara öğün</td>
+                                <td>3 ana + 3 ara öğün (daha küçük porsiyonlar)</td>
+                            </tr>
+                            <tr>
+                                <td>Uyku Düzeni</td>
+                                <td>Standart</td>
+                                <td>Baş kısmı yükseltilmiş yatak</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Önemli Not</h4>
+                    <p>Bu plandaki tüm öneriler, belirtilen sağlık durumları göz önünde bulundurularak hazırlanmıştır. Herhangi bir beslenme veya takviye programına başlamadan önce mutlaka doktorunuza danışınız.</p>
+                </div>
+                <div class="col-md-6">
+                    <h4>İletişim</h4>
+                    <p>Sorularınız için iletişime geçebilirsiniz.</p>
+                    <p>GitHub: <a href="https://github.com/AytekAy/sporbeslenme" class="text-white">github.com/AytekAy/sporbeslenme</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
